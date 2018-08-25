@@ -10,11 +10,11 @@
             android:title="Perfil" />
         <item
             android:id="@+id/nav_gallery"
-            android:icon="@drawable/emergency_icon"
+            android:icon="@drawable/ic_menu_share"
             android:title="Contactos de Emergencias" />
         <item
             android:id="@+id/nav_slideshow"
-            android:icon="@drawable/help_icon"
+            android:icon="@drawable/ic_menu_manage"
             android:title="Ayuda" />
         <item
             android:id="@+id/nav_manage"
