@@ -12,9 +12,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class MainFeedActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+
+    private TableLayout feedTable;
+    private Button search;
+    private EditText criteriaText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +54,11 @@ public class MainFeedActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        //setting attributes
+        this.feedTable = findViewById(R.id.feedTableLayout);
+
+
     }
 
     @Override
@@ -97,5 +116,33 @@ public class MainFeedActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+
+    private TextView setNewTextView(int i) {
+        //Movie m = movies.get(i);
+        TextView new_element = new TextView(this);
+        new_element.setId(i);
+
+        new_element.setTag(i);
+        new_element.setText("Nombre: ");
+        new_element.setOnClickListener((View.OnClickListener) this);
+        new_element.setLayoutParams(new TableRow.LayoutParams(300, 400));
+        return new_element;
+    }
+
+
+    //Debe de recibir un arreglo de denuncias
+    private void populateTable() {
+        //clean table
+        this.feedTable.removeAllViews();
+
+
+        TableRow newRow = new TableRow(this);
+        //Collections.reverse(_movies);
+
+        int i = 0;
+        TextView new_element1 = null;
+        new_element1 = setNewTextView(i);
     }
 }
