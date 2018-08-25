@@ -40,7 +40,7 @@
                         android:layout_width="38dp"
                         android:layout_height="38dp"
                         android:layout_weight="1"
-                        app:srcCompat="@drawable/icons8-person-female-24" />
+                        app:srcCompat="@drawable/icons8_person_female_24" />
 
                     <TextView
                         android:id="@+id/textView4"

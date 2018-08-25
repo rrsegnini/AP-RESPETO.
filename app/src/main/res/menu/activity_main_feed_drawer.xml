@@ -14,7 +14,7 @@
             android:title="Contactos de Emergencias" />
         <item
             android:id="@+id/nav_slideshow"
-            android:icon="@drawable/icons8_question_mark-64"
+            android:icon="@drawable/icons8_question_mark_64"
             android:title="Ayuda" />
         <item
             android:id="@+id/nav_manage"
