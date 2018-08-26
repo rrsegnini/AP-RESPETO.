@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Formulario">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="18dp"
+            android:text="Ubicación"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="33dp" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="142dp"
+            app:srcCompat="@drawable/common_google_signin_btn_icon_dark_focused" />
+
+        <Spinner
+            android:id="@+id/spinnerCategoria"
+            android:layout_width="match_parent"
+            android:layout_height="41dp"
+            tools:layout_editor_absoluteX="167dp"
+            tools:layout_editor_absoluteY="58dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="44dp" />
+
+        <Switch
+            android:id="@+id/switchPrivacidad"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:checked="true"
+            android:text="Anónima"
+            tools:checked="true"
+            tools:layout_editor_absoluteX="275dp"
+            tools:layout_editor_absoluteY="132dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="49dp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Denuncia"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="206dp" />
+
+        <EditText
+            android:id="@+id/txtDenuncia"
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:selectAllOnFocus="false"
+            android:singleLine="false"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="240dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnCancelar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Cancelar"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="447dp" />
+
+            <Button
+                android:id="@+id/btnPublicar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Publicar"
+                tools:layout_editor_absoluteX="286dp"
+                tools:layout_editor_absoluteY="447dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
