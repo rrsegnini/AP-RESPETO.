@@ -11,11 +11,15 @@
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/icons8_ambulance_48"
-            android:title="Contactos de Emergencias" />
+            android:title="Contactos de Emergencias"
+
+            />
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/icons8_question_mark_64"
-            android:title="Ayuda" />
+            android:title="Ayuda"
+
+            />
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/icons8_settings_64"

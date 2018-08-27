@@ -23,7 +23,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="scalingPercent" value="67" />
+                                                <entry key="scalingPercent" value="145" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -35,10 +35,10 @@
                                     <map>
                                       <entry key="backgroundAssetType" value="COLOR" />
                                       <entry key="backgroundColor" value="00ad4e" />
-                                      <entry key="backgroundLayerName" value="icon_logo_clear_background" />
-                                      <entry key="foregroundImage" value="D:\SegundoSemestre2018\Administracion de Proyectos\Proyectos\Proyecto1\Logotipo\LogoClear.png" />
-                                      <entry key="foregroundLayerName" value="icon_logo_clear" />
-                                      <entry key="outputName" value="icon_logo_clear_foreground" />
+                                      <entry key="backgroundLayerName" value="icon_map_background" />
+                                      <entry key="foregroundImage" value="D:\SegundoSemestre2018\Administracion de Proyectos\Proyectos\Proyecto1\Imgs\Map.png" />
+                                      <entry key="foregroundLayerName" value="icon_map" />
+                                      <entry key="outputName" value="icon_map_foreground" />
                                       <entry key="previewDensity" value="XXXHIGH" />
                                     </map>
                                   </option>

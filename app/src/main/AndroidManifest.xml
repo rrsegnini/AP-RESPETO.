@@ -45,7 +45,9 @@
         <activity android:name=".PantallaAyuda" />
         <activity android:name=".PantallaNumEmergencia" />
         <activity android:name=".PantallaComentarios" />
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".Formulario">
+        </activity>
     </application>
 
 </manifest>
