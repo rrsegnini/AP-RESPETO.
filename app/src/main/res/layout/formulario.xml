@@ -22,13 +22,15 @@
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="142dp"
-            app:srcCompat="@drawable/common_google_signin_btn_icon_dark_focused" />
+            android:layout_height="170dp"
+            android:scaleType="centerCrop"
+            app:srcCompat="@mipmap/icon_map" />
 
         <Spinner
             android:id="@+id/spinnerCategoria"
             android:layout_width="match_parent"
             android:layout_height="41dp"
+            android:entries="@array/RSPT_ubication"
             tools:layout_editor_absoluteX="167dp"
             tools:layout_editor_absoluteY="58dp" />
 
@@ -48,7 +50,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="49dp" />
+            android:layout_height="23dp" />
 
         <TextView
             android:id="@+id/textView2"
@@ -61,7 +63,7 @@
         <EditText
             android:id="@+id/txtDenuncia"
             android:layout_width="match_parent"
-            android:layout_height="190dp"
+            android:layout_height="179dp"
             android:ems="10"
             android:inputType="textMultiLine"
             android:selectAllOnFocus="false"
@@ -72,25 +74,25 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="right"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/btnCancelar"
-                android:layout_width="match_parent"
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/form_fabCancel"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Cancelar"
-                tools:layout_editor_absoluteX="8dp"
-                tools:layout_editor_absoluteY="447dp" />
+                android:clickable="true"
+                app:srcCompat="@android:drawable/ic_delete" />
 
-            <Button
-                android:id="@+id/btnPublicar"
-                android:layout_width="match_parent"
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/form_fabAdd"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Publicar"
-                tools:layout_editor_absoluteX="286dp"
-                tools:layout_editor_absoluteY="447dp" />
+                android:clickable="true"
+                app:srcCompat="@android:drawable/ic_menu_add" />
+
         </LinearLayout>
     </LinearLayout>
 

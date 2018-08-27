@@ -1,5 +1,6 @@
 package cr.ac.tec.ec.respeto;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -41,8 +42,10 @@ public class MainFeedActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent form = new Intent(MainFeedActivity.this, Formulario.class);
+                startActivity(form);
+                /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();*/
             }
         });
 
@@ -57,6 +60,8 @@ public class MainFeedActivity extends AppCompatActivity
 
         //setting attributes
         this.feedTable = findViewById(R.id.feedTableLayout);
+
+
 
 
     }
@@ -104,6 +109,8 @@ public class MainFeedActivity extends AppCompatActivity
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
+            Intent help = new Intent(MainFeedActivity.this, PantallaAyuda.class);
+            startActivity(help);
 
         } else if (id == R.id.nav_manage) {
 

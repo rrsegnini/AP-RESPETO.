@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="RSPT_ubication">
+        <item>Usar ubicación del mapa</item>
+        <item>En un bus</item>
+        <item>En un taxi</item>
+        <item>En un Uber</item>
+        <item>En casa</item>
+    </string-array>
+
+</resources>
