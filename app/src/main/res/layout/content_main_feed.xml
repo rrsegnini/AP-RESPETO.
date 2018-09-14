@@ -40,15 +40,10 @@
                     android:id="@+id/textName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-<<<<<<< HEAD
                     android:text="Denuncia"
                     android:textSize="40px"
-                    android:layout_toRightOf="@+id/profileButton1"/>
-=======
                     android:layout_toRightOf="@+id/profileButton1"
-                    android:editable="false"
-                    android:text="User345" />
->>>>>>> a1d3c3de630e0e0feaf4cf6edb758421518e3dce
+                    android:editable="false" />
 
                 <EditText
                     android:id="@+id/textInfo"
@@ -80,15 +75,11 @@
                 android:id="@+id/textName2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-<<<<<<< HEAD
                 android:text="Robo"
                 android:textSize="40px"
-                android:layout_toRightOf="@+id/profileButton2"/>
-=======
                 android:layout_toRightOf="@+id/profileButton2"
-                android:editable="false"
-                android:text="User123" />
->>>>>>> a1d3c3de630e0e0feaf4cf6edb758421518e3dce
+                android:editable="false" />
+
 
             <EditText
                 android:id="@+id/textInfo2"

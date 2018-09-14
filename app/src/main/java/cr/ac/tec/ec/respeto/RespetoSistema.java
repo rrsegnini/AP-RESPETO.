@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class RespetoSistema {
 
     private ArrayList<Denuncia> denuncias = new ArrayList<>();
-    
+
 
 
 }
