@@ -1,5 +1,6 @@
 package cr.ac.tec.ec.respeto;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Denuncia {
@@ -8,17 +9,17 @@ public class Denuncia {
     private int idLugar;
     private Date fechaHora;
     private int idUsuario;
-    private int idComentario;
+    private ArrayList<Comentario> comentarios = new ArrayList<>();
+
 
     public Denuncia() {}
 
-    public Denuncia(int id, String descripcion, int idLugar, Date fechaHora, int idUsuario, int idComentario) {
+    public Denuncia(int id, String descripcion, int idLugar, Date fechaHora, int idUsuario) {
         this.id = id;
         this.descripcion = descripcion;
         this.idLugar = idLugar;
         this.fechaHora = fechaHora;
         this.idUsuario = idUsuario;
-        this.idComentario = idComentario;
     }
 
     public int getId() {
@@ -61,11 +62,11 @@ public class Denuncia {
         this.idUsuario = idUsuario;
     }
 
-    public int getIdComentario() {
-        return idComentario;
+    public ArrayList<Comentario> getComentarios() {
+        return comentarios;
     }
 
-    public void setIdComentario(int idComentario) {
-        this.idComentario = idComentario;
+    public void setComentarios(ArrayList<Comentario> comentarios) {
+        this.comentarios = comentarios;
     }
 }
