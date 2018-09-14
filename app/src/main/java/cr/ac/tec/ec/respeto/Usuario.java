@@ -1,7 +1,7 @@
 package cr.ac.tec.ec.respeto;
 
 public class Usuario {
-    private int id;
+    private String id;
     private int cedula;
     private String nombreCompleto;
     private Genero genero;
@@ -10,7 +10,7 @@ public class Usuario {
 
     public Usuario() {}
 
-    public Usuario(int id, int cedula, String nombreCompleto, Genero genero, int edad, String alias) {
+    public Usuario(String id, int cedula, String nombreCompleto, Genero genero, int edad, String alias) {
         this.id = id;
         this.cedula = cedula;
         this.nombreCompleto = nombreCompleto;
@@ -19,11 +19,11 @@ public class Usuario {
         this.alias = alias;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

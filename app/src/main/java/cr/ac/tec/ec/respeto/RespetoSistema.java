@@ -29,13 +29,13 @@ public class RespetoSistema {
 
         //obtener fecha hora actual para poder hacer la consulta
         Date fechaHoraActual = new Date();
-        Timestamp ts=new Timestamp(fechaHoraActual.getTime());
-        System.out.println(ts);
+        //Timestamp ts=new Timestamp(fechaHoraActual.getTime());
+        //System.out.println(ts);
 
-        Query query = eventsReference.orderByChild("timestamp").startAt(ts);
+        //Query query = eventsReference.orderByChild("timestamp").startAt(ts);
 
         //modifica la fecha para obtener todos los reportes en un rango de 6 horas
-        Date newDate = DateUtils.addHours(fechaHoraActual, 3);
+        //Date newDate = DateUtils.addHours(fechaHoraActual, 3);
 
     }
 

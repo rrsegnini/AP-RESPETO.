@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Comentario {
     private int id;
+    private String idDenuncia;
     private String cuerpo;
     private int idUsuario;
     private Date fechaHora;
@@ -13,8 +14,9 @@ public class Comentario {
     public Comentario() {
     }
 
-    public Comentario(int id, String cuerpo, int idUsuario, Date fechaHora) {
+    public Comentario(int id, String idDenuncia, String cuerpo, int idUsuario, Date fechaHora) {
         this.id = id;
+        this.idDenuncia = idDenuncia;
         this.cuerpo = cuerpo;
         this.idUsuario = idUsuario;
         this.fechaHora = fechaHora;
@@ -53,6 +55,11 @@ public class Comentario {
     }
 
 
+    public String getIdDenuncia() {
+        return idDenuncia;
+    }
 
-
+    public void setIdDenuncia(String idDenuncia) {
+        this.idDenuncia = idDenuncia;
+    }
 }

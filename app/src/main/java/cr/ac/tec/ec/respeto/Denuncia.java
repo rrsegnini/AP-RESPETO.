@@ -8,13 +8,13 @@ public class Denuncia {
     private String descripcion;
     private int idLugar;
     private Date fechaHora;
-    private int idUsuario;
+    private String idUsuario;
     private ArrayList<Comentario> comentarios = new ArrayList<>();
 
 
     public Denuncia() {}
 
-    public Denuncia(int id, String descripcion, int idLugar, Date fechaHora, int idUsuario) {
+    public Denuncia(int id, String descripcion, int idLugar, Date fechaHora, String idUsuario) {
         this.id = id;
         this.descripcion = descripcion;
         this.idLugar = idLugar;
@@ -54,11 +54,11 @@ public class Denuncia {
         this.fechaHora = fechaHora;
     }
 
-    public int getIdUsuario() {
+    public String getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(int idUsuario) {
+    public void setIdUsuario(String idUsuario) {
         this.idUsuario = idUsuario;
     }
 

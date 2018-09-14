@@ -19,6 +19,9 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -63,9 +66,18 @@ public class MainFeedActivity extends AppCompatActivity
         this.feedTable = findViewById(R.id.feedTableLayout);
 
 
+        //database
+        startUp();
+
 
 
     }
+
+    private void startUp() {
+        DatabaseReference databaseComments = FirebaseDatabase.getInstance().getReference("Comentario");
+    }
+
+
 
     @Override
     public void onBackPressed() {
