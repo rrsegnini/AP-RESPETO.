@@ -30,6 +30,7 @@ public class MainFeedActivity extends AppCompatActivity
     private TableLayout feedTable;
     private Button search;
     private EditText criteriaText;
+    private RespetoSistema sistema;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
