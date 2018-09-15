@@ -9,54 +9,58 @@
     tools:showIn="@layout/app_bar_main_feed">
 
 
-    <EditText
-        android:id="@+id/searchCriteriaTextEdit"
-        android:layout_width="250dp"
-        android:layout_height="46dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@color/colorPrimary"
-        android:backgroundTint="@color/colorAccent"
-        android:ems="10"
-        android:hint="Buscar..."
-        android:inputType="textPersonName"
-        android:textColor="#ffffff"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.294"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="40dp"
-        android:layout_height="44dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/searchCriteriaTextEdit"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_search"
-        android:layout_marginRight="8dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/searchButton"
-        android:layout_width="61dp"
-        android:layout_height="47dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:src="@drawable/ic_search"
+            <EditText
+                android:id="@+id/searchCriteriaTextEdit"
+                android:layout_width="714dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:background="@color/common_google_signin_btn_text_dark_default"
+                android:backgroundTint="@android:color/white"
+                android:ems="10"
+                android:hint="Buscar..."
+                android:inputType="textPersonName"
+                android:textColor="#ffffff"
+                android:textColorLink="@color/RSPT_green"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.294"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        android:text="Go!"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/searchCriteriaTextEdit"
-        app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/mainfeed_imgSearchButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_weight="1"
+                android:scaleType="fitEnd"
+                app:layout_constraintEnd_toStartOf="@+id/searchCriteriaTextEdit"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@android:drawable/ic_menu_search" />
 
-    <ListView
-        android:id="@+id/listViewDenuncia"
-        android:layout_width="368dp"
-        android:layout_height="435dp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="68dp" />
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/listViewDenuncia"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="68dp" />
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
