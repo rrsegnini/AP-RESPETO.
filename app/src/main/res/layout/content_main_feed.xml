@@ -8,25 +8,7 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/app_bar_main_feed">
 
-<<<<<<< HEAD
-=======
-    <TableLayout
-        android:id="@+id/feedTableLayout"
-        android:layout_width="366dp"
-        android:layout_height="342dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
 
-
-    </TableLayout>
-
->>>>>>> 883044d6c162e15246ac6f712d273ac5e9f55b7e
     <EditText
         android:id="@+id/searchCriteriaTextEdit"
         android:layout_width="250dp"
