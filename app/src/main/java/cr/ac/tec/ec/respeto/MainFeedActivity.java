@@ -35,6 +35,10 @@ public class MainFeedActivity extends AppCompatActivity
     private EditText criteriaText;
     private RespetoSistema sistema;
 
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +72,7 @@ public class MainFeedActivity extends AppCompatActivity
 
         //database
         startUp();
+        RespetoSistema rs = new RespetoSistema();
 
 
 
