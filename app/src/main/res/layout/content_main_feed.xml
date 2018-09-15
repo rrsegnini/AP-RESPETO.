@@ -8,104 +8,10 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/app_bar_main_feed">
 
-    <TableLayout
-        android:id="@+id/feedTableLayout"
-        android:layout_width="366dp"
-        android:layout_height="342dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <ImageButton
-                    android:id="@+id/profileButton1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/icons8_person_female_24" />
-
-                <TextView
-                    android:id="@+id/textName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Denuncia"
-                    android:textSize="40px"
-                    android:layout_toRightOf="@+id/profileButton1"
-                    android:editable="false" />
-
-                <EditText
-                    android:id="@+id/textInfo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textMultiLine"
-                    android:text="Tener cuidado con el hombre que viste de rojo, hace poco acosó a una mujer"
-                    android:layout_below="@id/profileButton1"/>
-            </RelativeLayout>
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageButton
-                android:id="@+id/profileButton2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/icons8_person_female_24" />
-
-            <TextView
-                android:id="@+id/textName2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Robo"
-                android:textSize="40px"
-                android:layout_toRightOf="@+id/profileButton2"
-                android:editable="false" />
-
-
-            <EditText
-                android:id="@+id/textInfo2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/profileButton2"
-                android:ems="10"
-                android:inputType="textMultiLine"
-                android:text="Por favor cuidense, un tipo acaba de enseñarme sus partes íntimas mientras se masturbaba. Cerca de..." />
-        </RelativeLayout>
-
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </TableLayout>
-
     <EditText
         android:id="@+id/searchCriteriaTextEdit"
         android:layout_width="250dp"
         android:layout_height="46dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -113,14 +19,12 @@
         android:backgroundTint="@color/colorAccent"
         android:ems="10"
         android:hint="Buscar..."
-        android:textColor="#ffffff"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/feedTableLayout"
+        android:textColor="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.294"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.347" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -130,13 +34,13 @@
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toStartOf="@+id/searchCriteriaTextEdit"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_search" />
+        app:srcCompat="@android:drawable/ic_menu_search"
+        android:layout_marginRight="8dp" />
 
     <Button
         android:id="@+id/searchButton"
         android:layout_width="61dp"
         android:layout_height="47dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -144,8 +48,14 @@
 
         android:text="Go!"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/feedTableLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/searchCriteriaTextEdit"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/listViewDenuncia"
+        android:layout_width="368dp"
+        android:layout_height="435dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="68dp" />
 </android.support.constraint.ConstraintLayout>

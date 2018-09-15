@@ -17,37 +17,21 @@ import java.util.Date;
 public class RespetoSistema {
 
     private ArrayList<Denuncia> denuncias = new ArrayList<>();
-    DatabaseReference databaseReference;
-    DatabaseReference denunciasReference;
+    private DatabaseReference databaseReference;
+    private DatabaseReference denunciasReference;
 
 
 
     public RespetoSistema() {
-        //testingDatabase();
-        obtenerReportes();
-        boolean bandera = true;
+
     }
-
-
 
 
     private void obtenerReportes() {
          databaseReference = FirebaseDatabase.getInstance().getReference();
          denunciasReference = databaseReference.child("Denuncias");
 
-        /**
-        //obtener fecha hora actual para poder hacer la consulta
-        Date fechaHoraActual = new Date();
-        java.sql.Timestamp sq = new java.sql.Timestamp(fechaHoraActual.getTime());
-        //Query query = eventsReference.orderByChild("timestamp").startAt(ts);
 
-        //modifica la fecha para obtener todos los reportes en un rango de 6 horas
-        //Date newDate = DateUtils.addHours(fechaHoraActual, 3);
-
-
-         * java.util.Date utilDate = new java.util.Date();
-         java.sql.Timestamp sq = new java.sql.Timestamp(utilDate.getTime());
-         */
 
         denunciasReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -74,7 +58,11 @@ public class RespetoSistema {
     }
 
 
+    public ArrayList<Denuncia> getDenuncias() {
+        return denuncias;
+    }
 
-
-
+    public void setDenuncias(ArrayList<Denuncia> denuncias) {
+        this.denuncias = denuncias;
+    }
 }

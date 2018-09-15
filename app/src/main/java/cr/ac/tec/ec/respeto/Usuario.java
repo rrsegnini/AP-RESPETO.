@@ -66,4 +66,11 @@ public class Usuario {
     public void setAlias(String alias) {
         this.alias = alias;
     }
+
+    public String getNombre() {
+        if (this.alias != "") {
+            return this.nombreCompleto;
+        }
+        return  this.alias;
+    }
 }
