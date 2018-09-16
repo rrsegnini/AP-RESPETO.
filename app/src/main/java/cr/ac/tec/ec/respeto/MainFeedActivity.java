@@ -48,6 +48,9 @@ public class MainFeedActivity extends AppCompatActivity
     ListView listViewDenuncia;
 
 
+    Controller databaseController;
+
+
 
 
 
@@ -105,8 +108,14 @@ public class MainFeedActivity extends AppCompatActivity
     protected void onStart() {
         super.onStart();
 
+        databaseController = sistema.databaseController;
 
+
+        //leer denuncias
+        databaseController.readDenuncias(MainFeedActivity.this, sistema.getDenuncias(),listViewDenuncia);
         //metodo utilizado para que escuche las colecciones de denuncias
+
+        /*
         databaseDenuncias.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -135,6 +144,7 @@ public class MainFeedActivity extends AppCompatActivity
 
             }
         });
+        */
 
     }
 

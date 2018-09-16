@@ -22,9 +22,16 @@ public class RespetoSistema {
 
 
 
-    public RespetoSistema() {
+    //database controller
+    protected Controller databaseController ;
 
+
+
+    public RespetoSistema() {
+        databaseController = new Controller();
     }
+
+
 
 
     private void obtenerReportes() {
