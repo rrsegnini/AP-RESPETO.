@@ -74,7 +74,7 @@ public class Denuncia {
 
     }
 
-    public String getNombreUsuario() {
+    public String getAlias() {
         return alias;
     }
 
