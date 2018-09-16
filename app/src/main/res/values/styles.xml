@@ -10,7 +10,7 @@
         <item name="android:textColorSecondaryInverse">@color/RSPT_red</item>
         <item name="android:textColorPrimary">@color/RSPT_blue</item>
     </style>
-    <style name="NavTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="NavTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/secondary</item>
         <item name="colorAccent">@color/colorAccent</item>
