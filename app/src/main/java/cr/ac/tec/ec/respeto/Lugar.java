@@ -4,19 +4,19 @@ import android.location.Location;
 
 public class Lugar {
 
-    private int id;
+    private String id;
     private Location ubicacion;
 
-    public Lugar(int id, Location ubicacion) {
+    public Lugar(String id, Location ubicacion) {
         this.id = id;
         this.ubicacion = ubicacion;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
