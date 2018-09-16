@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -26,6 +27,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -36,12 +38,14 @@ public class MainFeedActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
+    private static final String TAG = "ERROR";
     private TableLayout feedTable;
     private Button search;
     private EditText criteriaText;
     private RespetoSistema sistema;
 
-    DatabaseReference databaseDenuncias;
+    private DatabaseReference databaseDenuncias;
+    private Query consulta;
 
 
     ListView listViewDenuncia;
@@ -89,11 +93,14 @@ public class MainFeedActivity extends AppCompatActivity
         //database
         sistema = new RespetoSistema();
         //fetch database data
-        databaseDenuncias = FirebaseDatabase.getInstance().getReference("Denuncias");
+        databaseDenuncias = FirebaseDatabase.getInstance().getReference("denuncias");
+
+        consulta = databaseDenuncias.orderByChild("fehchaHora");
 
 
 
         listViewDenuncia  = (ListView) findViewById(R.id.listViewDenuncia);
+
 
 
 
@@ -106,7 +113,8 @@ public class MainFeedActivity extends AppCompatActivity
 
 
 
-        databaseDenuncias.addValueEventListener(new ValueEventListener() {
+        consulta.addValueEventListener(new ValueEventListener() {
+
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
@@ -128,6 +136,8 @@ public class MainFeedActivity extends AppCompatActivity
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
 
             }
         });
