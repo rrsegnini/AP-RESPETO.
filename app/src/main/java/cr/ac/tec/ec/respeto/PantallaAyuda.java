@@ -8,7 +8,6 @@ import android.support.v7.widget.CardView;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,16 +27,16 @@ public class PantallaAyuda extends AppCompatActivity {
         windowmanager.getDefaultDisplay().getMetrics(dimension);
         final int height = dimension.heightPixels;
 
-        CardView denuncia = findViewById(R.id.ayuda_crdDenuncia);
+        CardView denuncia = findViewById(R.id.emergencia_crd911);
         setHelpInfo();
     }
 
     private void setHelpInfo(){
         try {
-            CardView denuncia = findViewById(R.id.ayuda_crdDenuncia);
-            CardView funciona = findViewById(R.id.ayuda_crdFunciona);
-            CardView comentario = findViewById(R.id.ayuda_crdComentario);
-            CardView agresion = findViewById(R.id.ayuda_crdAgresion);
+            CardView denuncia = findViewById(R.id.emergencia_crd911);
+            CardView funciona = findViewById(R.id.emergencia_crdCruzRoja);
+            CardView comentario = findViewById(R.id.emergencia_crdRural);
+            CardView agresion = findViewById(R.id.emergencia_crdPolicia);
 
             denuncia.setOnClickListener(new View.OnClickListener() {
                 @Override

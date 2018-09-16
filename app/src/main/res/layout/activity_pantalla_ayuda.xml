@@ -17,7 +17,7 @@
             android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/ayuda_txtTitle"
+                android:id="@+id/emergencia_txtTitle"
                 android:layout_width="match_parent"
                 android:layout_height="76dp"
                 android:layout_marginBottom="53dp"
@@ -26,22 +26,22 @@
                 android:text="Ayuda"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
                 android:textSize="36sp"
-                app:layout_constraintBottom_toTopOf="@+id/ayuda_crdDenuncia"
+                app:layout_constraintBottom_toTopOf="@+id/emergencia_crd911"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <android.support.v7.widget.CardView
-                android:id="@+id/ayuda_crdDenuncia"
+                android:id="@+id/emergencia_crd911"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_marginBottom="43dp"
                 android:contentDescription="asdasd"
-                app:cardElevation="4dp"
-                app:layout_constraintBottom_toTopOf="@+id/ayuda_crdFunciona"
+                app:cardElevation="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/emergencia_crdCruzRoja"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ayuda_txtTitle">
+                app:layout_constraintTop_toBottomOf="@+id/emergencia_txtTitle">
 
                 <TextView
                     android:id="@+id/ayuda_txtDenuncia"
@@ -64,15 +64,15 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:id="@+id/ayuda_crdAgresion"
+                android:id="@+id/emergencia_crdPolicia"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_marginBottom="76dp"
-                app:cardElevation="5dp"
+                app:cardElevation="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ayuda_crdComentario">
+                app:layout_constraintTop_toBottomOf="@+id/emergencia_crdRural">
 
                 <TextView
                     android:id="@+id/ayuda_txtAgresion"
@@ -93,15 +93,15 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:id="@+id/ayuda_crdFunciona"
+                android:id="@+id/emergencia_crdCruzRoja"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_marginBottom="44dp"
-                app:cardElevation="4dp"
-                app:layout_constraintBottom_toTopOf="@+id/ayuda_crdComentario"
+                app:cardElevation="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/emergencia_crdRural"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ayuda_crdDenuncia">
+                app:layout_constraintTop_toBottomOf="@+id/emergencia_crd911">
 
                 <TextView
                     android:id="@+id/ayuda_txtFunciona"
@@ -122,15 +122,15 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:id="@+id/ayuda_crdComentario"
+                android:id="@+id/emergencia_crdRural"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_marginBottom="34dp"
-                app:cardElevation="4dp"
-                app:layout_constraintBottom_toTopOf="@+id/ayuda_crdAgresion"
+                app:cardElevation="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/emergencia_crdPolicia"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ayuda_crdFunciona">
+                app:layout_constraintTop_toBottomOf="@+id/emergencia_crdCruzRoja">
 
                 <TextView
                     android:id="@+id/ayuda_txtComentario"
