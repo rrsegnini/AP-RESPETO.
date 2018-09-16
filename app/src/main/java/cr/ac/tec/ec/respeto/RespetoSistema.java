@@ -29,7 +29,7 @@ public class RespetoSistema {
 
     private void obtenerReportes() {
          databaseReference = FirebaseDatabase.getInstance().getReference();
-         denunciasReference = databaseReference.child("Denuncias");
+         denunciasReference = databaseReference.child("cenuncias");
 
 
 
