@@ -1,25 +1,28 @@
 package cr.ac.tec.ec.respeto;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class Denuncia {
     private int id;
     private String descripcion;
-    private int idLugar;
-    private Date fechaHora;
+    private String idLugar;
+    private long fechaHora;
     private String idUsuario;
-    private ArrayList<Comentario> comentarios = new ArrayList<>();
+    private String alias;
+
 
 
     public Denuncia() {}
 
-    public Denuncia(int id, String descripcion, int idLugar, Date fechaHora, String idUsuario) {
-        this.id = id;
+    public Denuncia(String descripcion, String idLugar, long fechaHora, String idUsuario, String alias) {
         this.descripcion = descripcion;
         this.idLugar = idLugar;
         this.fechaHora = fechaHora;
         this.idUsuario = idUsuario;
+        this.alias = alias;
     }
 
     public int getId() {
@@ -38,19 +41,19 @@ public class Denuncia {
         this.descripcion = descripcion;
     }
 
-    public int getIdLugar() {
+    public String getIdLugar() {
         return idLugar;
     }
 
-    public void setIdLugar(int idLugar) {
+    public void setIdLugar(String idLugar) {
         this.idLugar = idLugar;
     }
 
-    public Date getFechaHora() {
+    public long getFechaHora() {
         return fechaHora;
     }
 
-    public void setFechaHora(Date fechaHora) {
+    public void setFechaHora(long fechaHora) {
         this.fechaHora = fechaHora;
     }
 
@@ -62,11 +65,21 @@ public class Denuncia {
         this.idUsuario = idUsuario;
     }
 
-    public ArrayList<Comentario> getComentarios() {
-        return comentarios;
+
+    public String getFechaHoraString() {
+        Date d = new Date(fechaHora);
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+        String strDate = dateFormat.format(d);
+        return strDate;
+
     }
 
-    public void setComentarios(ArrayList<Comentario> comentarios) {
-        this.comentarios = comentarios;
+    public String getNombreUsuario() {
+        return alias;
     }
+
+    public void setNombreUsuario(String nombreUsuario) {
+        this.alias = nombreUsuario;
+    }
+
 }

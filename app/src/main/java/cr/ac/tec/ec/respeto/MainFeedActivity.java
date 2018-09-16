@@ -115,6 +115,9 @@ public class MainFeedActivity extends AppCompatActivity
                 for (DataSnapshot denunciaSnapshot : dataSnapshot.getChildren()) {
                     Denuncia denuncia = denunciaSnapshot.getValue(Denuncia.class);
 
+
+                    //query para obtener el user nombre del usuario para mandarlo a la clase
+
                     sistema.getDenuncias().add(denuncia);
                 }
 
