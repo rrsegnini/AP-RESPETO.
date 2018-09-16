@@ -32,6 +32,7 @@ public class ListaDenuncia extends ArrayAdapter<Denuncia>{
 
         View listViewItem = inflater.inflate(R.layout.list_layout, null, true);
 
+
         TextView textViewName = listViewItem.findViewById(R.id.textViewName);
         EditText textViewBody = listViewItem.findViewById(R.id.textViewBody);
         TextView textViewTime = listViewItem.findViewById(R.id.textViewTime);

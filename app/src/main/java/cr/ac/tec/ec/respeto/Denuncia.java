@@ -14,6 +14,7 @@ public class Denuncia {
     private String nombreUsuario;
 
 
+
     public Denuncia() {}
 
     public Denuncia(String descripcion, String idLugar, long fechaHora, String idUsuario, String nombreUsuario) {
@@ -64,6 +65,7 @@ public class Denuncia {
         this.idUsuario = idUsuario;
     }
 
+
     public String getFechaHoraString() {
         Date d = new Date(fechaHora);
         DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
@@ -79,4 +81,5 @@ public class Denuncia {
     public void setNombreUsuario(String nombreUsuario) {
         this.nombreUsuario = nombreUsuario;
     }
+
 }
