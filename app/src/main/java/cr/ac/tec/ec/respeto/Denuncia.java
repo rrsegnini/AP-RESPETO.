@@ -9,6 +9,7 @@ public class Denuncia {
     private int idLugar;
     private Date fechaHora;
     private String idUsuario;
+    private ArrayList<Comentario> comentarios = new ArrayList<>();
 
 
     public Denuncia() {}
@@ -61,5 +62,11 @@ public class Denuncia {
         this.idUsuario = idUsuario;
     }
 
+    public ArrayList<Comentario> getComentarios() {
+        return comentarios;
+    }
 
+    public void setComentarios(ArrayList<Comentario> comentarios) {
+        this.comentarios = comentarios;
+    }
 }
