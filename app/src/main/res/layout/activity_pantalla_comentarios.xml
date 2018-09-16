@@ -77,13 +77,13 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <Button
-                android:id="@+id/buttonReset"
+                android:id="@+id/botonPublicar"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="publicar"
-                />
+                android:text="publicar" />
 
         </LinearLayout>
     </ScrollView>
