@@ -39,7 +39,7 @@ public class ListaDenuncia extends ArrayAdapter<Denuncia>{
 
         Denuncia denuncia = listaDenuncia.get(position);
 
-        textViewName.setText("Nombre");
+        textViewName.setText(denuncia.getNombreUsuario());
         textViewBody.setText(denuncia.getDescripcion());
         textViewTime.setText(denuncia.getFechaHoraString());
 

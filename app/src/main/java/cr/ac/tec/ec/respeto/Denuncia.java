@@ -11,18 +11,18 @@ public class Denuncia {
     private String idLugar;
     private long fechaHora;
     private String idUsuario;
-    private String nombreUsuario;
+    private String alias;
 
 
 
     public Denuncia() {}
 
-    public Denuncia(String descripcion, String idLugar, long fechaHora, String idUsuario, String nombreUsuario) {
+    public Denuncia(String descripcion, String idLugar, long fechaHora, String idUsuario, String alias) {
         this.descripcion = descripcion;
         this.idLugar = idLugar;
         this.fechaHora = fechaHora;
         this.idUsuario = idUsuario;
-        this.nombreUsuario = nombreUsuario;
+        this.alias = alias;
     }
 
     public int getId() {
@@ -75,11 +75,11 @@ public class Denuncia {
     }
 
     public String getNombreUsuario() {
-        return nombreUsuario;
+        return alias;
     }
 
     public void setNombreUsuario(String nombreUsuario) {
-        this.nombreUsuario = nombreUsuario;
+        this.alias = nombreUsuario;
     }
 
 }
