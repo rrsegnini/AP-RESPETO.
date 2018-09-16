@@ -90,7 +90,7 @@ public class MainFeedActivity extends AppCompatActivity
         //database
         sistema = new RespetoSistema();
         //fetch database data
-        databaseDenuncias = FirebaseDatabase.getInstance().getReference("Denuncias");
+        databaseDenuncias = FirebaseDatabase.getInstance().getReference("denuncias");
 
 
 
@@ -106,7 +106,7 @@ public class MainFeedActivity extends AppCompatActivity
         super.onStart();
 
 
-
+        //metodo utilizado para que escuche las colecciones de denuncias
         databaseDenuncias.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
