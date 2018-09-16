@@ -9,7 +9,7 @@
             android:icon="@drawable/ic_menu_camera"
             android:title="Perfil" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_emergency"
             android:icon="@drawable/icons8_ambulance_48"
             android:title="Contactos de Emergencias"
 

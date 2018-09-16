@@ -177,7 +177,9 @@ public class MainFeedActivity extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_emergency) {
+            Intent emergency_contacts = new Intent(MainFeedActivity.this, PantallaNumEmergencia.class);
+            startActivity(emergency_contacts);
 
         } else if (id == R.id.nav_slideshow) {
             Intent help = new Intent(MainFeedActivity.this, PantallaAyuda.class);
