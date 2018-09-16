@@ -3,10 +3,10 @@ package cr.ac.tec.ec.respeto;
 import java.util.Date;
 
 public class Comentario {
-    private int id;
+    private String id;
     private String idDenuncia;
     private String cuerpo;
-    private int idUsuario;
+    private String idUsuario;
     private Date fechaHora;
 
 
@@ -14,7 +14,7 @@ public class Comentario {
     public Comentario() {
     }
 
-    public Comentario(int id, String idDenuncia, String cuerpo, int idUsuario, Date fechaHora) {
+    public Comentario(String id, String idDenuncia, String cuerpo, String idUsuario, Date fechaHora) {
         this.id = id;
         this.idDenuncia = idDenuncia;
         this.cuerpo = cuerpo;
@@ -22,7 +22,7 @@ public class Comentario {
         this.fechaHora = fechaHora;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -38,11 +38,11 @@ public class Comentario {
         this.cuerpo = cuerpo;
     }
 
-    public int getIdUsuario() {
+    public String getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(int idUsuario) {
+    public void setIdUsuario(String idUsuario) {
         this.idUsuario = idUsuario;
     }
 

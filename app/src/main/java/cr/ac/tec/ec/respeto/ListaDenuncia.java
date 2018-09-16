@@ -34,11 +34,14 @@ public class ListaDenuncia extends ArrayAdapter<Denuncia>{
 
         TextView textViewName = listViewItem.findViewById(R.id.textViewName);
         EditText textViewBody = listViewItem.findViewById(R.id.textViewBody);
+        TextView textViewTime = listViewItem.findViewById(R.id.textViewTime);
 
         Denuncia denuncia = listaDenuncia.get(position);
 
         textViewName.setText("Nombre");
         textViewBody.setText(denuncia.getDescripcion());
+        textViewTime.setText(denuncia.getFechaHoraString());
+
 
         return listViewItem;
 

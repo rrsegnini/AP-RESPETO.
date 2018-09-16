@@ -1,24 +1,27 @@
 package cr.ac.tec.ec.respeto;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class Denuncia {
     private int id;
     private String descripcion;
-    private int idLugar;
-    private Date fechaHora;
+    private String idLugar;
+    private long fechaHora;
     private String idUsuario;
+    private String nombreUsuario;
 
 
     public Denuncia() {}
 
-    public Denuncia(int id, String descripcion, int idLugar, Date fechaHora, String idUsuario) {
-        this.id = id;
+    public Denuncia(String descripcion, String idLugar, long fechaHora, String idUsuario, String nombreUsuario) {
         this.descripcion = descripcion;
         this.idLugar = idLugar;
         this.fechaHora = fechaHora;
         this.idUsuario = idUsuario;
+        this.nombreUsuario = nombreUsuario;
     }
 
     public int getId() {
@@ -37,19 +40,19 @@ public class Denuncia {
         this.descripcion = descripcion;
     }
 
-    public int getIdLugar() {
+    public String getIdLugar() {
         return idLugar;
     }
 
-    public void setIdLugar(int idLugar) {
+    public void setIdLugar(String idLugar) {
         this.idLugar = idLugar;
     }
 
-    public Date getFechaHora() {
+    public long getFechaHora() {
         return fechaHora;
     }
 
-    public void setFechaHora(Date fechaHora) {
+    public void setFechaHora(long fechaHora) {
         this.fechaHora = fechaHora;
     }
 
@@ -61,5 +64,19 @@ public class Denuncia {
         this.idUsuario = idUsuario;
     }
 
+    public String getFechaHoraString() {
+        Date d = new Date(fechaHora);
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+        String strDate = dateFormat.format(d);
+        return strDate;
 
+    }
+
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
+
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
+    }
 }
