@@ -70,12 +70,12 @@
                 app:srcCompat="@android:drawable/checkbox_on_background" />
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/botonRegistrar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="87dp"
+                android:layout_marginBottom="29dp"
                 android:background="@color/RSPT_blue"
                 android:text="Registrar"
                 android:textColor="@color/primary" />
