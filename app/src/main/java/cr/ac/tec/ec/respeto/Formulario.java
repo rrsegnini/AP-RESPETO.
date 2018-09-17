@@ -19,6 +19,8 @@ import android.widget.Toast;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -27,6 +29,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
+
 
 public class Formulario extends AppCompatActivity {
 
@@ -37,6 +40,9 @@ public class Formulario extends AppCompatActivity {
     private RespetoSistema sistema;
 
     private String placeID = "";
+
+    private FirebaseAuth mAuth;
+
 
     DatabaseReference databaseDenuncias;
 //    ListView listViewDenuncia;
@@ -125,7 +131,7 @@ public class Formulario extends AppCompatActivity {
                     Denuncia denuncia = new Denuncia(mDescripcion, mLocation,
                             obtener_fecha(), mUsuario, mAlias );
 
-                    sistema = new RespetoSistema();
+
                     //fetch database data
                     databaseDenuncias = FirebaseDatabase.getInstance().getReference("denuncias");
 
@@ -143,6 +149,14 @@ public class Formulario extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        sistema = new RespetoSistema();
+        mAuth = sistema.databaseController.getmAuth();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
     }
 
     public boolean isServicesOK() {

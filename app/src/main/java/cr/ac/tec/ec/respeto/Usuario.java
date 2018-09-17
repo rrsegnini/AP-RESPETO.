@@ -4,7 +4,8 @@ public class Usuario {
     private String id;
     private int cedula;
     private String nombreCompleto;
-    private Genero genero;
+    private Genero gender;
+    private String genero;
     private int edad;
     private String alias;
     private String email;
@@ -13,7 +14,29 @@ public class Usuario {
     public Usuario() {
     }
 
+    public Usuario(String id, int cedula, String nombreCompleto, Genero genero, int edad, String alias, String email) {
+        this.id = id;
+        this.cedula = cedula;
+        this.nombreCompleto = nombreCompleto;
+        this.gender = genero;
+        this.edad = edad;
+        this.alias = alias;
+        this.email = email;
+    }
+
     public Usuario(String id, int cedula, String nombreCompleto, Genero genero, int edad, String alias, String email, String contrasenna) {
+        this.id = id;
+        this.cedula = cedula;
+        this.nombreCompleto = nombreCompleto;
+        this.gender = genero;
+        this.edad = edad;
+        this.alias = alias;
+        this.email = email;
+        this.contrasenna = contrasenna;
+    }
+
+    //creado para utilizarlo en la base
+    public Usuario(String id,int cedula, String nombreCompleto, String genero, int edad, String alias, String email) {
         this.id = id;
         this.cedula = cedula;
         this.nombreCompleto = nombreCompleto;
@@ -21,7 +44,6 @@ public class Usuario {
         this.edad = edad;
         this.alias = alias;
         this.email = email;
-        this.contrasenna = contrasenna;
     }
 
     public String getId() {
@@ -48,11 +70,11 @@ public class Usuario {
         this.nombreCompleto = nombreCompleto;
     }
 
-    public Genero getGenero() {
-        return genero;
+    public String getGenero() {
+        return this.genero;
     }
 
-    public void setGenero(Genero genero) {
+    public void setGenero(String genero) {
         this.genero = genero;
     }
 

@@ -29,9 +29,9 @@ public class MainFeedActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
-    DatabaseReference databaseDenuncias;
-    ListView listViewDenuncia;
-    Controller databaseController;
+    private DatabaseReference databaseDenuncias;
+    private ListView listViewDenuncia;
+    private Controller databaseController;
     private TableLayout feedTable;
     private Button search;
     private EditText criteriaText;

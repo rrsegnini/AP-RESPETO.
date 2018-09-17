@@ -39,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
                     toast.show();
                     Intent intent = new Intent(LoginActivity.this, MainFeedActivity.class);
                     Bundle usuarioActual = new Bundle();
+
                     //Aquí paso los datos que le voy a enviar a MainFeedActivity
                     usuarioActual.putString("nombre",administrador.getNombre());
                     usuarioActual.putString("correo",administrador.getEmail());
