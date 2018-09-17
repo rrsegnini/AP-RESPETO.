@@ -7,6 +7,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -79,7 +80,30 @@ public class Formulario extends AppCompatActivity {
         });
 
         TextView location = (TextView) findViewById(R.id.txt_location);
-        location.setText(String.format("Ubicación seleccionada: %s", obtener_localización()));
+
+        Spinner location_spinner = (Spinner) findViewById(R.id.spinnerCategoria);
+
+        location_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(position == 0){
+                    btnMap.setEnabled(true);
+                    location.setText(String.format("Ubicación seleccionada: %s", obtener_localización()));
+                } else {
+                    btnMap.setEnabled(false);
+                    location.setText(String.format("Ubicación seleccionada: %s",
+                            location_spinner.getSelectedItem().toString()));
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                btnMap.setEnabled(true);
+                location.setText(String.format("Ubicación seleccionada: %s", obtener_localización()));
+            }
+        });
+
 
         FloatingActionButton btnAgregar = (FloatingActionButton) findViewById(R.id.form_fabAdd);
         btnAgregar.setOnClickListener(new View.OnClickListener() {
@@ -87,10 +111,11 @@ public class Formulario extends AppCompatActivity {
             public void onClick(View v) {
                 EditText descripcion = (EditText) findViewById(R.id.txtDenuncia);
                 Switch privacidad = (Switch) findViewById(R.id.switchPrivacidad);
-                Spinner location_spinner = (Spinner) findViewById(R.id.spinnerCategoria);
                 String mDescripcion = descripcion.getText().toString();
                 String mUsuario = "Prueba";
                 String mAlias = (privacidad.isChecked()) ? "Anonimo" : "Prueba";
+
+
 
                 try {
                     String mLocation = location_spinner.getSelectedItem().toString();

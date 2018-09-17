@@ -18,9 +18,9 @@
             android:background="@color/RSPT_green"
             app:popupTheme="@style/AppTheme.PopupOverlay"
             app:subtitle="RESPETO."
-            app:subtitleTextColor="@color/RSPT_blue"
+            app:subtitleTextColor="#ffff"
             app:title="Main feed"
-            app:titleTextColor="@color/RSPT_blue" />
+            app:titleTextColor="#ffff" />
 
     </android.support.design.widget.AppBarLayout>
 
