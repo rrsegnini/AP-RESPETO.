@@ -3,8 +3,8 @@ package cr.ac.tec.ec.respeto;
 import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +24,7 @@ public class PantallaNumEmergencia extends AppCompatActivity {
         setCallButtons();
     }
 
-    private void setHelpInfo(){
+    private void setHelpInfo() {
         try {
             CardView n911 = findViewById(R.id.emergencia_crd911);
             CardView nCruzRoja = findViewById(R.id.emergencia_crdCruzRoja);
@@ -67,13 +67,13 @@ public class PantallaNumEmergencia extends AppCompatActivity {
                     animateCardView(nINAMU);
                 }
             });
-        }catch(Exception e){
+        } catch (Exception e) {
             Toast.makeText(PantallaNumEmergencia.this, e.getMessage(), Toast.LENGTH_SHORT);
         }
 
     }
 
-    private void setCallButtons(){
+    private void setCallButtons() {
         Button c911 = findViewById(R.id.emergencia_btn911);
         Button cPolicia = findViewById(R.id.emergencia_btnPolicia);
         Button cCruzRoja = findViewById(R.id.emergencia_btnCruzRoja);
@@ -112,14 +112,13 @@ public class PantallaNumEmergencia extends AppCompatActivity {
         });
     }
 
-    private void animateCardView(CardView cardview){
+    private void animateCardView(CardView cardview) {
         int expandedSize = 300;
         int collapsedSize = 100;
-        TextView question = (TextView)cardview.getChildAt(0);
-        LinearLayout descriptionLayout1 = (LinearLayout)cardview.getChildAt(1);
-        LinearLayout descriptionLayout2 =  (LinearLayout)descriptionLayout1.getChildAt(1);
-        Button description =  (Button)descriptionLayout2.getChildAt(1);
-
+        TextView question = (TextView) cardview.getChildAt(0);
+        LinearLayout descriptionLayout1 = (LinearLayout) cardview.getChildAt(1);
+        LinearLayout descriptionLayout2 = (LinearLayout) descriptionLayout1.getChildAt(1);
+        Button description = (Button) descriptionLayout2.getChildAt(1);
 
 
         if (cardview.getHeight() != expandedSize) {
@@ -127,7 +126,7 @@ public class PantallaNumEmergencia extends AppCompatActivity {
             expandView(cardview, expandedSize);
             question.setVisibility(View.INVISIBLE);
             description.setVisibility(View.VISIBLE);
-        }else{
+        } else {
             expandView(cardview, collapsedSize);
             question.setVisibility(View.VISIBLE);
             description.setVisibility(View.INVISIBLE);
@@ -170,27 +169,31 @@ public class PantallaNumEmergencia extends AppCompatActivity {
 
     }
 
-    private void call911(){
+    private void call911() {
         Intent intent = new Intent(Intent.ACTION_DIAL);
         intent.setData(Uri.parse("tel:911"));
         startActivity(intent);
     }
-    private void callPolicia(){
+
+    private void callPolicia() {
         Intent intent = new Intent(Intent.ACTION_DIAL);
         intent.setData(Uri.parse("tel:117"));
         startActivity(intent);
     }
-    private void call1CruzRoja(){
+
+    private void call1CruzRoja() {
         Intent intent = new Intent(Intent.ACTION_DIAL);
         intent.setData(Uri.parse("tel:128"));
         startActivity(intent);
     }
-    private void callRural(){
+
+    private void callRural() {
         Intent intent = new Intent(Intent.ACTION_DIAL);
         intent.setData(Uri.parse("tel:127"));
         startActivity(intent);
     }
-    private void callINAMU(){
+
+    private void callINAMU() {
         Intent intent = new Intent(Intent.ACTION_DIAL);
         intent.setData(Uri.parse("tel:2527-8400"));
         startActivity(intent);

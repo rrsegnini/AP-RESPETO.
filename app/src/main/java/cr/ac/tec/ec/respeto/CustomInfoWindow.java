@@ -8,10 +8,6 @@ import android.widget.TextView;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.Marker;
 
-/**
- * Created by User on 10/2/2017.
- */
-
 public class CustomInfoWindow implements GoogleMap.InfoWindowAdapter {
 
     private final View mWindow;
@@ -22,19 +18,19 @@ public class CustomInfoWindow implements GoogleMap.InfoWindowAdapter {
         mWindow = LayoutInflater.from(context).inflate(R.layout.custom_info_window, null);
     }
 
-    private void rendowWindowText(Marker marker, View view){
+    private void rendowWindowText(Marker marker, View view) {
 
         String title = marker.getTitle();
         TextView tvTitle = (TextView) view.findViewById(R.id.title);
 
-        if(!title.equals("")){
+        if (!title.equals("")) {
             tvTitle.setText(title);
         }
 
         String snippet = marker.getSnippet();
         TextView tvSnippet = (TextView) view.findViewById(R.id.snippet);
 
-        if(!snippet.equals("")){
+        if (!snippet.equals("")) {
             tvSnippet.setText(snippet);
         }
     }

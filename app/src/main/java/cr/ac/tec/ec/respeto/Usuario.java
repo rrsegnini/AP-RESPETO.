@@ -9,7 +9,8 @@ public class Usuario {
     private String alias;
     private String email;
 
-    public Usuario() {}
+    public Usuario() {
+    }
 
     public Usuario(String id, int cedula, String nombreCompleto, Genero genero, int edad, String alias, String email) {
         this.id = id;
@@ -73,7 +74,7 @@ public class Usuario {
         if (this.alias != "") {
             return this.nombreCompleto;
         }
-        return  this.alias;
+        return this.alias;
     }
 
     public String getEmail() {

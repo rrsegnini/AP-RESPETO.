@@ -11,14 +11,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Controller {
     DatabaseReference databaseReference;
     DatabaseReference databaseDenuncias;
 
 
-    public Controller() {}
+    public Controller() {
+    }
 
     public Controller(DatabaseReference databaseReference) {
         this.databaseReference = databaseReference;
@@ -31,12 +31,13 @@ public class Controller {
 
     /**
      * metodo utilizado para que escuche las colecciones de denuncias
+     *
      * @param context
      * @param denuncias
      * @param listViewDenuncia
      */
     public void readDenuncias(Activity context, ArrayList<Denuncia> denuncias,
-                               ListView listViewDenuncia) {
+                              ListView listViewDenuncia) {
 
         databaseDenuncias = FirebaseDatabase.getInstance().getReference("denuncias");
         databaseDenuncias.addValueEventListener(new ValueEventListener() {

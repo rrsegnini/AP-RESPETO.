@@ -2,8 +2,8 @@ package cr.ac.tec.ec.respeto;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.util.DisplayMetrics;
 import android.view.View;
@@ -21,8 +21,7 @@ public class PantallaAyuda extends AppCompatActivity {
         setContentView(R.layout.activity_pantalla_ayuda);
 
 
-
-        WindowManager windowmanager = (WindowManager)getApplicationContext().getSystemService(Context.WINDOW_SERVICE);
+        WindowManager windowmanager = (WindowManager) getApplicationContext().getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics dimension = new DisplayMetrics();
         windowmanager.getDefaultDisplay().getMetrics(dimension);
         final int height = dimension.heightPixels;
@@ -31,7 +30,7 @@ public class PantallaAyuda extends AppCompatActivity {
         setHelpInfo();
     }
 
-    private void setHelpInfo(){
+    private void setHelpInfo() {
         try {
             CardView denuncia = findViewById(R.id.emergencia_crd911);
             CardView funciona = findViewById(R.id.emergencia_crdCruzRoja);
@@ -65,24 +64,24 @@ public class PantallaAyuda extends AppCompatActivity {
                     animateCardView(agresion);
                 }
             });
-        }catch(Exception e){
+        } catch (Exception e) {
             Toast.makeText(PantallaAyuda.this, e.getMessage(), Toast.LENGTH_SHORT);
         }
 
     }
 
-    private void animateCardView(CardView cardview){
+    private void animateCardView(CardView cardview) {
         int expandedSize = 400;
         int collapsedSize = 100;
-        TextView question = (TextView)cardview.getChildAt(0);
-        TextView description = (TextView)cardview.getChildAt(1);
+        TextView question = (TextView) cardview.getChildAt(0);
+        TextView description = (TextView) cardview.getChildAt(1);
 
         if (cardview.getHeight() != expandedSize) {
             //denuncia.setContentDescription("Prueba 1");
             expandView(cardview, expandedSize);
             question.setVisibility(View.INVISIBLE);
             description.setVisibility(View.VISIBLE);
-        }else{
+        } else {
             expandView(cardview, collapsedSize);
             question.setVisibility(View.VISIBLE);
             description.setVisibility(View.INVISIBLE);

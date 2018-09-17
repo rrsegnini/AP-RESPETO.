@@ -2,7 +2,6 @@ package cr.ac.tec.ec.respeto;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 
 public class Denuncia {
@@ -14,8 +13,8 @@ public class Denuncia {
     private String alias;
 
 
-
-    public Denuncia() {}
+    public Denuncia() {
+    }
 
     public Denuncia(String descripcion, String idLugar, long fechaHora, String idUsuario, String alias) {
         this.descripcion = descripcion;

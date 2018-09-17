@@ -1,30 +1,22 @@
 package cr.ac.tec.ec.respeto;
 
 import android.support.annotation.NonNull;
-import android.text.format.DateUtils;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.security.Timestamp;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class RespetoSistema {
 
+    //database controller
+    protected Controller databaseController;
     private ArrayList<Denuncia> denuncias = new ArrayList<>();
     private DatabaseReference databaseReference;
     private DatabaseReference denunciasReference;
-
-
-
-    //database controller
-    protected Controller databaseController ;
-
 
 
     public RespetoSistema() {
@@ -32,19 +24,16 @@ public class RespetoSistema {
     }
 
 
-
-
     private void obtenerReportes() {
-         databaseReference = FirebaseDatabase.getInstance().getReference();
-         denunciasReference = databaseReference.child("Denuncias");
-
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+        denunciasReference = databaseReference.child("Denuncias");
 
 
         denunciasReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 denuncias.clear();
-                for (DataSnapshot denunciaSnapshot: dataSnapshot.getChildren()){
+                for (DataSnapshot denunciaSnapshot : dataSnapshot.getChildren()) {
 
                     Denuncia denuncia = denunciaSnapshot.getValue(Denuncia.class);
                     denuncias.add(denuncia);
@@ -57,9 +46,6 @@ public class RespetoSistema {
 
             }
         });
-
-
-
 
 
     }

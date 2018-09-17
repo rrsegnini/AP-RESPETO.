@@ -1,12 +1,8 @@
 package cr.ac.tec.ec.respeto;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -15,7 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -23,44 +19,25 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 public class MainFeedActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
+    DatabaseReference databaseDenuncias;
+    ListView listViewDenuncia;
+    Controller databaseController;
     private TableLayout feedTable;
     private Button search;
     private EditText criteriaText;
     private RespetoSistema sistema;
 
-    DatabaseReference databaseDenuncias;
-
-
-    ListView listViewDenuncia;
-
-
-    Controller databaseController;
-
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_feed);
-
-
-
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -97,8 +74,7 @@ public class MainFeedActivity extends AppCompatActivity
 
 
 
-        listViewDenuncia  = (ListView) findViewById(R.id.listViewDenuncia);
-
+        listViewDenuncia = (ListView) findViewById(R.id.listViewDenuncia);
 
 
     }
@@ -112,7 +88,7 @@ public class MainFeedActivity extends AppCompatActivity
 
 
         //leer denuncias
-        databaseController.readDenuncias(MainFeedActivity.this, sistema.getDenuncias(),listViewDenuncia);
+        databaseController.readDenuncias(MainFeedActivity.this, sistema.getDenuncias(), listViewDenuncia);
         //metodo utilizado para que escuche las colecciones de denuncias
 
         /*
@@ -198,7 +174,7 @@ public class MainFeedActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_manage) {
 
-        //} else if (id == R.id.nav_share) {
+            //} else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
 

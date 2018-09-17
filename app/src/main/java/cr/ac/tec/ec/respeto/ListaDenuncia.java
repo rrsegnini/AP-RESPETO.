@@ -14,7 +14,7 @@ import java.util.List;
 
 
 // CLASE utilizada para trasnformar una lista de denuncias a un list view
-public class ListaDenuncia extends ArrayAdapter<Denuncia>{
+public class ListaDenuncia extends ArrayAdapter<Denuncia> {
 
     private Activity context;
     private List<Denuncia> listaDenuncia;

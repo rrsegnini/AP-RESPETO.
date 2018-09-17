@@ -10,7 +10,6 @@ public class Comentario {
     private Date fechaHora;
 
 
-
     public Comentario() {
     }
 

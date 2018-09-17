@@ -1,7 +1,7 @@
 package cr.ac.tec.ec.respeto;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,7 +15,7 @@ public class PantallaComentarios extends AppCompatActivity {
         EditText cComent;
         Button bPub;
 
-        bPub = (Button)findViewById(R.id.botonPublicar);
+        bPub = (Button) findViewById(R.id.botonPublicar);
 
         bPub.setOnClickListener(new View.OnClickListener() {
             @Override
