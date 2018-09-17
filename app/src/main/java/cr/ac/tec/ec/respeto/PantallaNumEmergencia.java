@@ -114,7 +114,7 @@ public class PantallaNumEmergencia extends AppCompatActivity {
 
     private void animateCardView(CardView cardview) {
         int expandedSize = 300;
-        int collapsedSize = 100;
+        int collapsedSize = 250;
         TextView question = (TextView) cardview.getChildAt(0);
         LinearLayout descriptionLayout1 = (LinearLayout) cardview.getChildAt(1);
         LinearLayout descriptionLayout2 = (LinearLayout) descriptionLayout1.getChildAt(1);
