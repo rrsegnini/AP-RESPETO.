@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -67,6 +68,8 @@ public class MainFeedActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+
+
         //setting attributes
         //this.feedTable = findViewById(R.id.feedTableLayout);
 
@@ -76,13 +79,16 @@ public class MainFeedActivity extends AppCompatActivity
         //fetch database data
         databaseDenuncias = FirebaseDatabase.getInstance().getReference("denuncias");
 
-
-
         listViewDenuncia = (ListView) findViewById(R.id.listViewDenuncia);
 
-
+        listViewDenuncia.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent comments = new Intent(MainFeedActivity.this, PantallaComentarios.class);
+                startActivity(comments);
+            }
+        });
     }
-
 
     @Override
     protected void onStart() {
