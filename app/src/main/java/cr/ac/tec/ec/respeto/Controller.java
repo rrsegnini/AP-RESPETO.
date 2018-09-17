@@ -10,6 +10,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,8 +29,10 @@ public class Controller {
     DatabaseReference databaseReference;
     DatabaseReference databaseDenuncias;
 
+
     private FirebaseAuth mAuth;
 
+    private boolean BANDERA_REGISTRO = false;
 
 
 
@@ -43,14 +48,26 @@ public class Controller {
         this.databaseReference = databaseReference;
     }
 
-    public void wirteONEuser(int cedula, String nombreCompleto, Genero genero, int edad, String alias,
-                             String email, Activity context, String contrasenna) {
+    public void writeONEuser(Activity context) {
+        int cedula = 101110111;
+        String nombreCompleto = "AdministradorUSERTEST";
+        Genero genero = Genero.FEMENINO;
+        int edad = 100;
+        String alias = "Apodo del Administrador";
+        String email = "admin@admin.com";
+        String contrasenna = "admin123";
+        writeNewUser(cedula,nombreCompleto,genero,edad,alias,email,context,contrasenna);
+
+
+
 
 
     }
 
 
-    public void writeNewUser(int cedula, String nombreCompleto, Genero genero, int edad, String alias, String email, Activity context, String contrasenna) {
+    public void writeNewUser(int cedula, String nombreCompleto, Genero genero, int edad, String alias,
+                             String email, Activity context, String contrasenna) {
+
         String genStr;
         if (genero == Genero.FEMENINO) {
             genStr = "f";
@@ -59,7 +76,49 @@ public class Controller {
             genStr = "m";
         }
 
+        mAuth.createUserWithEmailAndPassword(email, contrasenna)
+                .addOnCompleteListener(context, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "createUserWithEmail:success");
 
+                            //updateUI(user);
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
+
+                            //updateUI(null);
+
+                            try {
+                                throw task.getException();
+                            } catch (FirebaseAuthWeakPasswordException e) {
+                                int a = 0;
+                            } catch (FirebaseAuthInvalidCredentialsException e) {
+                                //mTxtEmail.setError(getString(R.string.error_invalid_email));
+                                //mTxtEmail.requestFocus();
+                            } catch (FirebaseAuthUserCollisionException e) {
+                                //mTxtEmail.setError(getString(R.string.error_user_exists));
+                                //mTxtEmail.requestFocus();
+                            } catch (Exception e) {
+                                Log.e(TAG, e.getMessage());
+                            }
+
+                        }
+                    }
+                });
+        String id = mAuth.getCurrentUser().getUid();
+        Usuario user = new Usuario(id, cedula,nombreCompleto,genStr,edad,alias,email);
+
+        //public Usuario(String id,int cedula, String nombreCompleto, String genero, int edad, String alias, String email)
+
+        databaseReference = FirebaseDatabase.getInstance().getReference("usuarios");
+
+        databaseReference.push().setValue(user);
+
+
+        /*
         mAuth.createUserWithEmailAndPassword(email, contrasenna)
                 .addOnCompleteListener((Executor) this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -81,35 +140,27 @@ public class Controller {
                     }
                 });
 
-        String id = mAuth.getCurrentUser().getUid();
+        */
+
+
+
+
+        //String id = mAuth.getCurrentUser().getUid();
 
         /*
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "createUserWithEmail:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            //updateUI(user);
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
+        if (writeUser) {
+            Log.d(TAG, "createUserWithEmail:success");
+        } else {
+            Log.w(TAG, "createUserWithEmail:failure", task.getException());
                             Toast.makeText(context, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
-                            //updateUI(null);
-                        }
-
-                        // ...
-                    }
-                });
+        }
 
         * */
 
 
-        Usuario user = new Usuario(id, cedula,nombreCompleto,genStr,edad,alias,email);
-        databaseReference.child("usuarios").push().setValue(user);
+        //Usuario user = new Usuario(id, cedula,nombreCompleto,genStr,edad,alias,email);
+        //databaseReference.child("usuarios").push().setValue(user);
 
 
 

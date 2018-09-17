@@ -12,13 +12,23 @@ import java.util.ArrayList;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private RespetoSistema sistema;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        sistema = new RespetoSistema();
+        //sistema.databaseController.writeONEuser(LoginActivity.this);
+
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Usuario administrador = new Usuario("1", 3, "Administrador", Genero.MASCULINO, 21, "admin", "admin@admin.com", "admin");
+        Usuario administrador = new Usuario("1", 3, "Administrador", Genero.MASCULINO, 21, "admin", "admin@admin.com", "Adminadmin123");
 
         EditText campoEmail = findViewById(R.id.login_txtEmail);
         EditText campoClave = findViewById(R.id.login_txtPassword);
@@ -57,6 +67,8 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+
+
 
 
 
