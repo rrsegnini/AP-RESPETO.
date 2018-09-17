@@ -213,41 +213,25 @@ public class Controller {
 
     }
 
-    public String readUsuarios(String id, ArrayList<Usuario> usuarios) {
+    public String readUsuarios(FirebaseAuth mAuth,ArrayList<Usuario> usuarios) {
 
-        String alias = "Not found";
+        String id  = mAuth.getCurrentUser().getUid();
         usuarios.clear();
         databaseUsuarios = FirebaseDatabase.getInstance().getReference("usuarios");
-        databaseUsuarios.addValueEventListener(new ValueEventListener() {
+        databaseUsuarios.orderByChild("id").equalTo(id).addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                for (DataSnapshot usuarioSnapshot : dataSnapshot.getChildren()) {
-                    Usuario usuario = usuarioSnapshot.getValue(Usuario.class);
-
-                    try {
-                        if (usuario.getId().equals(id)) {
-                            usuarios.add(usuario);
-                        }
-                    } catch (NullPointerException nl){
-                        Log.d(TAG, "onDataChange_ID: " + id);
-                    }
-
-                }
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Usuario usuario = dataSnapshot.getValue(Usuario.class);
             }
 
-
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
             }
-        });
+        });;
 
-        if(usuarios.size() > 0) {
-            alias = usuarios.get(0).getAlias();
-        }
-        return alias;
 
+        return " ";
     }
 
 }
