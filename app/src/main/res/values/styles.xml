@@ -9,6 +9,7 @@
         <item name="android:textColorSecondary">@color/RSPT_red</item>
         <item name="android:textColorSecondaryInverse">@color/RSPT_red</item>
         <item name="android:textColorPrimary">@color/RSPT_blue</item>
+        <item name="floatingActionButtonStyle">@style/Widget.Design.FloatingActionButton</item>
     </style>
 
     <style name="NavTheme" parent="Theme.AppCompat.Light.NoActionBar">
