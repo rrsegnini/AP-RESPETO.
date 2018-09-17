@@ -3,4 +3,5 @@
     <color name="RSPT_green">#02ae4f</color>
     <color name="RSPT_red">#e83c48</color>
     <color name="RSPT_blue">#365d75</color>
+    <color name="primary">#ffffff</color>
 </resources>
