@@ -28,6 +28,7 @@ import static android.support.constraint.Constraints.TAG;
 public class Controller {
     DatabaseReference databaseReference;
     DatabaseReference databaseDenuncias;
+    DatabaseReference databaseUsuarios;
 
 
     private FirebaseAuth mAuth;
@@ -211,4 +212,42 @@ public class Controller {
         });
 
     }
+
+    public String readUsuarios(String id, ArrayList<Usuario> usuarios) {
+
+        String alias = "Not found";
+        usuarios.clear();
+        databaseUsuarios = FirebaseDatabase.getInstance().getReference("usuarios");
+        databaseUsuarios.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot usuarioSnapshot : dataSnapshot.getChildren()) {
+                    Usuario usuario = usuarioSnapshot.getValue(Usuario.class);
+
+                    try {
+                        if (usuario.getId().equals(id)) {
+                            usuarios.add(usuario);
+                        }
+                    } catch (NullPointerException nl){
+                        Log.d(TAG, "onDataChange_ID: " + id);
+                    }
+
+                }
+            }
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        if(usuarios.size() > 0) {
+            alias = usuarios.get(0).getAlias();
+        }
+        return alias;
+
+    }
+
 }

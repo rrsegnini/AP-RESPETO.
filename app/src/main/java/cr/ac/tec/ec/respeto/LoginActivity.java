@@ -2,24 +2,35 @@ package cr.ac.tec.ec.respeto;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import java.util.ArrayList;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private RespetoSistema sistema;
+    private static final String TAG = "Error";
+//    private RespetoSistema sistema;
+    private FirebaseAuth mAuth;
+
+    private FirebaseAuth.AuthStateListener mAuthListener;
 
     @Override
     protected void onStart() {
         super.onStart();
-        sistema = new RespetoSistema();
         //sistema.databaseController.writeONEuser(LoginActivity.this);
-
+        mAuth.addAuthStateListener(mAuthListener);
 
     }
 
@@ -28,15 +39,26 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Usuario administrador = new Usuario("1", 3, "Administrador", Genero.MASCULINO, 21, "admin", "admin@admin.com", "Adminadmin123");
+        mAuth = FirebaseAuth.getInstance();
+
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    // User is signed in
+                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+                } else {
+                    // User is signed out
+                    Log.d(TAG, "onAuthStateChanged:signed_out");
+                }
+                // ...
+            }
+        };
 
         EditText campoEmail = findViewById(R.id.login_txtEmail);
         EditText campoClave = findViewById(R.id.login_txtPassword);
         Button botonIngreso = findViewById(R.id.botonIngresar);
-
-        //almacenar temporalmente el usuario mientras se hace lo de meter a la BD.
-        ArrayList<Usuario> listaUsuario = new ArrayList<Usuario>();
-        listaUsuario.add(administrador);
 
         botonIngreso.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,35 +66,47 @@ public class LoginActivity extends AppCompatActivity {
                 String correo = campoEmail.getText().toString();
                 String contrasena = campoClave.getText().toString();
 
-                if(correo.equals(administrador.getEmail()) && contrasena.equals(administrador.getContrasenna())){
-                    Toast toast = Toast.makeText(getApplicationContext(), "Está ingresando como administrador", Toast.LENGTH_SHORT);
-                    toast.show();
-                    Intent intent = new Intent(LoginActivity.this, MainFeedActivity.class);
-                    Bundle usuarioActual = new Bundle();
-
-                    //Aquí paso los datos que le voy a enviar a MainFeedActivity
-                    usuarioActual.putString("nombre",administrador.getNombre());
-                    usuarioActual.putString("correo",administrador.getEmail());
-                    usuarioActual.putString("alias",administrador.getAlias());
-                    intent.putExtras(usuarioActual);
-
-                    startActivity(intent);
+                if(!correo.equals("") || !contrasena.equals("")){
+                    sign_in(correo, contrasena);
                 }
-                else{
-                    Toast toast = Toast.makeText(getApplicationContext(), "Correo/contraseña incorrecto", Toast.LENGTH_SHORT);
-                    toast.show();
+                else {
+                    Toast.makeText(LoginActivity.this, "Debe rellenar todos los campos",
+                            Toast.LENGTH_SHORT).show();
                 }
-
 
 
             }
         });
 
-
-
-
-
     }
 
+    private void sign_in(String email, String password) {
+        mAuth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
 
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+
+                    if (!task.isSuccessful()) {
+                        Log.w(TAG, "signInWithEmail:failure", task.getException());
+                        Toast.makeText(LoginActivity.this, "Ha ocurrido un error",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        Intent intent = new Intent(LoginActivity.this, MainFeedActivity.class);
+                        startActivity(intent);
+                        Toast.makeText(LoginActivity.this, "Ingreso exitoso",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
+    }
 }

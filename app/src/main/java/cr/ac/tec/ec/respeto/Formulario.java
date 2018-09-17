@@ -3,6 +3,7 @@ package cr.ac.tec.ec.respeto;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -21,8 +22,12 @@ import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -42,6 +47,15 @@ public class Formulario extends AppCompatActivity {
     private String placeID = "";
 
     private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
+    String mUsuario;
+    FirebaseUser user;
+    private DatabaseReference databaseUsuarios;
+    private Controller controller;
+
+
+
+
 
 
     DatabaseReference databaseDenuncias;
@@ -67,7 +81,22 @@ public class Formulario extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.formulario);
-
+        mAuth = FirebaseAuth.getInstance();
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    // User is signed in
+                    mUsuario = user.getUid();
+                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+                } else {
+                    // User is signed out
+                    Log.d(TAG, "onAuthStateChanged:signed_out");
+                }
+                // ...
+            }
+        };
         if (isServicesOK()) {
             init();
         }
@@ -118,19 +147,26 @@ public class Formulario extends AppCompatActivity {
                 EditText descripcion = (EditText) findViewById(R.id.txtDenuncia);
                 Switch privacidad = (Switch) findViewById(R.id.switchPrivacidad);
                 String mDescripcion = descripcion.getText().toString();
-                String mUsuario = "Prueba";
-                String mAlias = (privacidad.isChecked()) ? "Anonimo" : "Prueba";
+                assert user != null;
+
+                databaseController = sistema.databaseController;
 
 
+                //leer denuncias
+
+
+                String mAlias = (privacidad.isChecked()) ? "Anonimo" :
+                        databaseController.readUsuarios(mUsuario, sistema.getUsuarios());
 
                 try {
+                    Log.d(TAG, "Usuario Actual ID: " + mUsuario);
+                    Log.d(TAG, "Alias actual: " + mAlias);
                     String mLocation = location_spinner.getSelectedItem().toString();
                     if(mLocation.equals("Usar ubicación del mapa")){
                         mLocation = obtener_localización();
                     }
                     Denuncia denuncia = new Denuncia(mDescripcion, mLocation,
-                            obtener_fecha(), mUsuario, mAlias );
-
+                            obtener_fecha(), user.getUid(), mAlias );
 
                     //fetch database data
                     databaseDenuncias = FirebaseDatabase.getInstance().getReference("denuncias");
@@ -155,8 +191,12 @@ public class Formulario extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         sistema = new RespetoSistema();
-        mAuth = sistema.databaseController.getmAuth();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+
+    private String getCurrentUser(){
+
+        return "";
     }
 
     public boolean isServicesOK() {
