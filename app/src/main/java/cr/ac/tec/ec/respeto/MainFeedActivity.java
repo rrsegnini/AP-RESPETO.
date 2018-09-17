@@ -1,5 +1,6 @@
 package cr.ac.tec.ec.respeto;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -12,6 +13,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -54,6 +57,8 @@ public class MainFeedActivity extends AppCompatActivity
             }
         });
 
+        criteriaText = (EditText) findViewById(R.id.searchCriteriaTextEdit);
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -62,6 +67,8 @@ public class MainFeedActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
 
         //setting attributes
         //this.feedTable = findViewById(R.id.feedTableLayout);
@@ -72,17 +79,21 @@ public class MainFeedActivity extends AppCompatActivity
         //fetch database data
         databaseDenuncias = FirebaseDatabase.getInstance().getReference("denuncias");
 
-
-
         listViewDenuncia = (ListView) findViewById(R.id.listViewDenuncia);
 
-
+        listViewDenuncia.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent comments = new Intent(MainFeedActivity.this, PantallaComentarios.class);
+                startActivity(comments);
+            }
+        });
     }
-
 
     @Override
     protected void onStart() {
         super.onStart();
+
 
         databaseController = sistema.databaseController;
 

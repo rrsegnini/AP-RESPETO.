@@ -1,29 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Formulario">
+    tools:context=".Formulario"
+    android:padding="15dp"
+    android:gravity="center"
+    android:layout_gravity="center_vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_gravity="center_vertical">
+
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="18dp"
-            android:text="Ubicación"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="33dp" />
+            android:text="Ubicación" />
 
         <Button
             android:id="@+id/btn_map"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Registrar ubicación" />
+            android:text="Registrar ubicación"
+            style="@style/Widget.AppCompat.Button.Colored"/>
 
         <TextView
             android:id="@+id/txt_location"
@@ -34,9 +39,7 @@
             android:id="@+id/spinnerCategoria"
             android:layout_width="match_parent"
             android:layout_height="41dp"
-            android:entries="@array/RSPT_ubication"
-            tools:layout_editor_absoluteX="167dp"
-            tools:layout_editor_absoluteY="58dp" />
+            android:entries="@array/RSPT_ubication" />
 
         <Space
             android:layout_width="match_parent"
@@ -48,9 +51,7 @@
             android:layout_height="35dp"
             android:checked="true"
             android:text="Anónima"
-            tools:checked="true"
-            tools:layout_editor_absoluteX="275dp"
-            tools:layout_editor_absoluteY="132dp" />
+            tools:checked="true" />
 
         <Space
             android:layout_width="match_parent"
@@ -60,9 +61,7 @@
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Denuncia"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="206dp" />
+            android:text="Denuncia" />
 
         <EditText
             android:id="@+id/txtDenuncia"
@@ -71,23 +70,13 @@
             android:ems="10"
             android:inputType="textMultiLine"
             android:selectAllOnFocus="false"
-            android:singleLine="false"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="240dp" />
+            android:singleLine="false" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="right"
             android:orientation="horizontal">
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/form_fabCancel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:clickable="true"
-                app:srcCompat="@android:drawable/ic_delete" />
 
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/form_fabAdd"
@@ -100,4 +89,4 @@
         </LinearLayout>
     </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
