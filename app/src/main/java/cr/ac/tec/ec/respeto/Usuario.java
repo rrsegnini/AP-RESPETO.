@@ -8,11 +8,12 @@ public class Usuario {
     private int edad;
     private String alias;
     private String email;
+    private String contrasenna;
 
     public Usuario() {
     }
 
-    public Usuario(String id, int cedula, String nombreCompleto, Genero genero, int edad, String alias, String email) {
+    public Usuario(String id, int cedula, String nombreCompleto, Genero genero, int edad, String alias, String email, String contrasenna) {
         this.id = id;
         this.cedula = cedula;
         this.nombreCompleto = nombreCompleto;
@@ -20,6 +21,7 @@ public class Usuario {
         this.edad = edad;
         this.alias = alias;
         this.email = email;
+        this.contrasenna = contrasenna;
     }
 
     public String getId() {
@@ -60,6 +62,14 @@ public class Usuario {
 
     public void setEdad(int edad) {
         this.edad = edad;
+    }
+
+    public String getContrasenna() {
+        return contrasenna;
+    }
+
+    public void setContrasenna(String contrasenna) {
+        this.contrasenna = contrasenna;
     }
 
     public String getAlias() {
