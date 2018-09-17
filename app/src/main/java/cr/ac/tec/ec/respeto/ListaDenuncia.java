@@ -1,5 +1,6 @@
 package cr.ac.tec.ec.respeto;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -27,6 +28,7 @@ public class ListaDenuncia extends ArrayAdapter<Denuncia> {
 
     }
 
+    @SuppressLint("SetTextI18n")
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -36,13 +38,15 @@ public class ListaDenuncia extends ArrayAdapter<Denuncia> {
 
 
         TextView textViewName = listViewItem.findViewById(R.id.textViewName);
-        EditText textViewBody = listViewItem.findViewById(R.id.textViewBody);
+        TextView textViewBody = listViewItem.findViewById(R.id.textViewBody);
+        TextView textViewLugar = listViewItem.findViewById(R.id.textViewLugar);
         TextView textViewTime = listViewItem.findViewById(R.id.textViewTime);
 
         Denuncia denuncia = listaDenuncia.get(position);
 
         textViewName.setText(denuncia.getAlias());
         textViewBody.setText(denuncia.getDescripcion());
+        textViewLugar.setText("Lugar: " + denuncia.getIdLugar());
         textViewTime.setText(denuncia.getFechaHoraString());
 
 
