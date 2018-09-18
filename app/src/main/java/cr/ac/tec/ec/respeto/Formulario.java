@@ -32,6 +32,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Objects;
 
@@ -67,7 +68,7 @@ public class Formulario extends AppCompatActivity {
         try {
             placeID = Objects.requireNonNull(getIntent().getExtras()).getString("localización");
         } catch (NullPointerException e) {
-            Log.e(TAG, "instance initializer: ", e);
+            Log.d(TAG, "Default location");
         }
         return placeID;
     }
@@ -154,9 +155,9 @@ public class Formulario extends AppCompatActivity {
 
                 //leer denuncias
 
-
+                ArrayList<Usuario> usuarios = new ArrayList<>();
                 String mAlias = (privacidad.isChecked()) ? "Anonimo" :
-                        databaseController.readUsuarios(mUsuario, sistema.getUsuarios());
+                        getUserById(databaseController.getmAuth(), usuarios);
 
                 try {
                     Log.d(TAG, "Usuario Actual ID: " + mUsuario);
@@ -217,6 +218,48 @@ public class Formulario extends AppCompatActivity {
             Toast.makeText(this, "You can't make map requests", Toast.LENGTH_SHORT).show();
         }
         return false;
+    }
+
+    public String getUserById(FirebaseAuth mAuth,ArrayList<Usuario> usuarios) {
+
+        String id  = mAuth.getCurrentUser().getUid();
+        String alias = "";
+        usuarios.clear();
+        Log.d(TAG, "getUserById__ID: " + id);
+        databaseUsuarios = FirebaseDatabase.getInstance().getReference("usuarios");
+        databaseUsuarios.orderByChild("id").equalTo(id).addListenerForSingleValueEvent(new ValueEventListener() {
+            int cont = 0;
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                Usuario usuario = dataSnapshot.getValue(Usuario.class);
+                usuarios.add(usuario);
+                cont++;
+                Log.d(TAG, "onDataChange_CONT: " + cont);
+                Log.d(TAG, "onDataChange_VALUE_Alias: " + usuario.getAlias());
+                Log.d(TAG, "onDataChange_VALUE_Id: " + usuario.getId());
+//                Log.d(TAG, "onDataChange_VALUE_Contrasenia: " + usuario.getContrasenna());
+                Log.d(TAG, "onDataChange_VALUE_Email: " + usuario.getEmail());
+                Log.d(TAG, "onDataChange_VALUE_Genero: " + usuario.getGenero());
+                Log.d(TAG, "onDataChange_VALUE_nombre: " + usuario.getNombre());
+                Log.d(TAG, "onDataChange_VALUE_NCompleto: " + usuario.getNombreCompleto());
+                Log.d(TAG, "onDataChange_VALUE_Cedula: " + usuario.getCedula());
+                Log.d(TAG, "onDataChange_VALUE_Edad: " + usuario.getEdad());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
+
+//        try{
+//            alias = usuarios.get(0).getAlias();
+//        } catch (NullPointerException nl){
+//            Log.d(TAG, "No se encontraron usuarios");
+//        }
+
+        return alias;
     }
 
 }

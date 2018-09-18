@@ -15,7 +15,7 @@ public class PantallaComentarios extends AppCompatActivity {
         EditText cComent;
         Button bPub;
 
-        bPub = (Button) findViewById(R.id.botonPublicar);
+        bPub = (Button) findViewById(R.id.publicar);
 
         bPub.setOnClickListener(new View.OnClickListener() {
             @Override

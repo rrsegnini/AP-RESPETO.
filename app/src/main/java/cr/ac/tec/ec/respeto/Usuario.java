@@ -1,50 +1,51 @@
 package cr.ac.tec.ec.respeto;
 
 public class Usuario {
-    private String id;
-    private int cedula;
-    private String nombreCompleto;
-    private Genero gender;
-    private String genero;
-    private int edad;
     private String alias;
+    private int cedula;
+    private int edad;
     private String email;
-    private String contrasenna;
+    private String genero;
+    private String id;
+    private String nombre;
+    private String nombreCompleto;
+    //    private Genero genero;
+//    private String contrasenna;
 
     public Usuario() {
     }
 
-    public Usuario(String id, int cedula, String nombreCompleto, Genero genero, int edad, String alias, String email) {
+    public Usuario(String id, int cedula, String nombreCompleto, String nombre, int edad, String alias, String email) {
         this.id = id;
         this.cedula = cedula;
         this.nombreCompleto = nombreCompleto;
-        this.gender = genero;
+        this.nombre = nombre;
         this.edad = edad;
         this.alias = alias;
         this.email = email;
     }
 
-    public Usuario(String id, int cedula, String nombreCompleto, Genero genero, int edad, String alias, String email, String contrasenna) {
-        this.id = id;
-        this.cedula = cedula;
-        this.nombreCompleto = nombreCompleto;
-        this.gender = genero;
-        this.edad = edad;
-        this.alias = alias;
-        this.email = email;
-        this.contrasenna = contrasenna;
-    }
+//    public Usuario(String id, int cedula, String nombreCompleto, Genero genero, int edad, String alias, String email, String contrasenna) {
+//        this.id = id;
+//        this.cedula = cedula;
+//        this.nombreCompleto = nombreCompleto;
+//        this.gender = genero;
+//        this.edad = edad;
+//        this.alias = alias;
+//        this.email = email;
+//        this.contrasenna = contrasenna;
+//    }
 
     //creado para utilizarlo en la base
-    public Usuario(String id,int cedula, String nombreCompleto, String genero, int edad, String alias, String email) {
-        this.id = id;
-        this.cedula = cedula;
-        this.nombreCompleto = nombreCompleto;
-        this.genero = genero;
-        this.edad = edad;
-        this.alias = alias;
-        this.email = email;
-    }
+//    public Usuario(String id,int cedula, String nombreCompleto, String genero, int edad, String alias, String email) {
+//        this.id = id;
+//        this.cedula = cedula;
+//        this.nombreCompleto = nombreCompleto;
+//        this.genero = genero;
+//        this.edad = edad;
+//        this.alias = alias;
+//        this.email = email;
+//    }
 
     public String getId() {
         return id;
@@ -86,13 +87,13 @@ public class Usuario {
         this.edad = edad;
     }
 
-    public String getContrasenna() {
-        return contrasenna;
-    }
+//    public String getContrasenna() {
+//        return contrasenna;
+//    }
 
-    public void setContrasenna(String contrasenna) {
-        this.contrasenna = contrasenna;
-    }
+//    public void setContrasenna(String contrasenna) {
+//        this.contrasenna = contrasenna;
+//    }
 
     public String getAlias() {
         return alias;
@@ -103,10 +104,7 @@ public class Usuario {
     }
 
     public String getNombre() {
-        if (this.alias != "") {
-            return this.nombreCompleto;
-        }
-        return this.alias;
+        return this.nombre;
     }
 
     public String getEmail() {
