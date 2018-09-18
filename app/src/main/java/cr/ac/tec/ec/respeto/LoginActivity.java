@@ -59,6 +59,7 @@ public class LoginActivity extends AppCompatActivity {
         EditText campoEmail = findViewById(R.id.login_txtEmail);
         EditText campoClave = findViewById(R.id.login_txtPassword);
         Button botonIngreso = findViewById(R.id.botonIngresar);
+        Button botonReg = findViewById(R.id.botonRegistrar);
 
         botonIngreso.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,6 +78,18 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+
+        botonReg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, Pantalla_registrar.class);
+                startActivity(intent);
+            }
+        });
+
+
+
+
 
     }
 
@@ -101,6 +114,8 @@ public class LoginActivity extends AppCompatActivity {
                 }
             });
     }
+
+
 
     @Override
     public void onStop() {
