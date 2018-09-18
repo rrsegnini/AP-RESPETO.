@@ -213,6 +213,7 @@ public class Controller {
 
     }
 
+
     public String readUsuarios(FirebaseAuth mAuth,ArrayList<Usuario> usuarios) {
 
         String id  = mAuth.getCurrentUser().getUid();
@@ -233,5 +234,4 @@ public class Controller {
 
         return " ";
     }
-
 }

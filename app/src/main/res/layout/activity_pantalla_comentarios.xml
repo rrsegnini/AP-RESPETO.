@@ -7,85 +7,63 @@
     tools:context=".PantallaComentarios"
     tools:layout_editor_absoluteY="25dp">
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/cardView5"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="21dp"
-        android:layout_marginLeft="21dp"
-        android:layout_marginRight="21dp"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="3dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView17"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="match_parent"
-            android:layout_height="237dp"
-            app:srcCompat="@mipmap/icon_acoso" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
 
         <TextView
-            android:id="@+id/textView8"
-            android:layout_width="289dp"
-            android:layout_height="44dp"
-            android:text='"Me acaban de gritar..."'
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
-    </android.support.v7.widget.CardView>
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="249dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:text="0 comentarios"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="25dp"
-        android:text="por ana008_mn"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
-        app:layout_constraintEnd_toEndOf="@+id/cardView5" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_denuncia" />
 
 
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="6dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14">
+        <ListView
+            android:id="@+id/listViewDenuncia"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:choiceMode="singleChoice"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="68dp" />
 
         <LinearLayout
-            android:id="@+id/content"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/writeNewComment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:background="@color/common_google_signin_btn_text_dark_default"
+                android:backgroundTint="@android:color/white"
+                android:hint="Comentar"
+                android:inputType="textMultiLine"
+                android:textColor="#000"
+                android:textColorLink="@color/RSPT_green"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.294"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/botonPublicar"
-                android:layout_width="100dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="publicar" />
+                android:text="Publicar"
+                android:id="@+id/publicar"
+                style="@style/Widget.AppCompat.Button.Colored"/>
 
         </LinearLayout>
-    </ScrollView>
+
+
+
+    </LinearLayout>
+
 
 </android.support.constraint.ConstraintLayout>
