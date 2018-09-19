@@ -31,6 +31,8 @@ import static android.support.constraint.Constraints.TAG;
 public class Controller {
     DatabaseReference databaseReference;
     DatabaseReference databaseDenuncias;
+    DatabaseReference databaseComentarios;
+
     DatabaseReference databaseUsuarios;
 
 
@@ -217,6 +219,45 @@ public class Controller {
         });
 
     }
+
+
+    public void readComentarios(Activity context, ArrayList<Comentario> comentarios,
+                              ListView listViewComentario) {
+
+        databaseComentarios = FirebaseDatabase.getInstance().getReference("comentarios");
+        databaseComentarios.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                comentarios.clear();
+
+                for (DataSnapshot comentarioSnapshot : dataSnapshot.getChildren()) {
+                    Comentario comentario = comentarioSnapshot.getValue(Comentario.class);
+
+
+                    //query para obtener el user nombre del usuario para mandarlo a la clase
+
+                    comentarios.add(comentario);
+                }
+
+                Collections.reverse(Arrays.asList(comentarios));
+                ListaComentario adapter = new ListaComentario(context, comentarios);
+                adapter.notifyDataSetChanged();
+                listViewComentario.setAdapter(adapter);
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+    }
+
+
+
 
 
     private ArrayList<Denuncia> sortDenuncias(ArrayList<Denuncia> denuncias) {

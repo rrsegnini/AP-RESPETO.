@@ -1,5 +1,7 @@
 package cr.ac.tec.ec.respeto;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Comentario {
@@ -7,13 +9,13 @@ public class Comentario {
     private String idDenuncia;
     private String cuerpo;
     private String idUsuario;
-    private Date fechaHora;
+    private long fechaHora;
 
 
     public Comentario() {
     }
 
-    public Comentario(String id, String idDenuncia, String cuerpo, String idUsuario, Date fechaHora) {
+    public Comentario(String id, String idDenuncia, String cuerpo, String idUsuario, long fechaHora) {
         this.id = id;
         this.idDenuncia = idDenuncia;
         this.cuerpo = cuerpo;
@@ -45,11 +47,11 @@ public class Comentario {
         this.idUsuario = idUsuario;
     }
 
-    public Date getFechaHora() {
+    public long getFechaHora() {
         return fechaHora;
     }
 
-    public void setFechaHora(Date fechaHora) {
+    public void setFechaHora(long fechaHora) {
         this.fechaHora = fechaHora;
     }
 
@@ -61,4 +63,14 @@ public class Comentario {
     public void setIdDenuncia(String idDenuncia) {
         this.idDenuncia = idDenuncia;
     }
+
+    public String getFechaHoraString() {
+        Date d = new Date(fechaHora);
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+        String strDate = dateFormat.format(d);
+        return strDate;
+
+    }
+
+
 }
