@@ -241,7 +241,7 @@ public class Formulario extends AppCompatActivity {
 //                Log.d(TAG, "onDataChange_VALUE_Contrasenia: " + usuario.getContrasenna());
                 Log.d(TAG, "onDataChange_VALUE_Email: " + usuario.getEmail());
                 Log.d(TAG, "onDataChange_VALUE_Genero: " + usuario.getGenero());
-                Log.d(TAG, "onDataChange_VALUE_nombre: " + usuario.getNombre());
+                Log.d(TAG, "onDataChange_VALUE_nombre: " + usuario.getNombreCompleto());
                 Log.d(TAG, "onDataChange_VALUE_NCompleto: " + usuario.getNombreCompleto());
                 Log.d(TAG, "onDataChange_VALUE_Cedula: " + usuario.getCedula());
                 Log.d(TAG, "onDataChange_VALUE_Edad: " + usuario.getEdad());

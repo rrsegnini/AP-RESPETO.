@@ -7,7 +7,6 @@ public class Usuario {
     private String email;
     private String genero;
     private String id;
-    private String nombre;
     private String nombreCompleto;
     //    private Genero genero;
 //    private String contrasenna;
@@ -15,17 +14,17 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(String id, int cedula, String nombreCompleto, String nombre, int edad, String alias, String email) {
-        this.id = id;
-        this.cedula = cedula;
-        this.nombreCompleto = nombreCompleto;
-        this.nombre = nombre;
-        this.edad = edad;
+    public Usuario(String alias, int cedula, int edad, String email, String genero, String id, String nombreCompleto) {
         this.alias = alias;
+        this.cedula = cedula;
+        this.edad = edad;
         this.email = email;
+        this.genero = genero;
+        this.id = id;
+        this.nombreCompleto = nombreCompleto;
     }
 
-//    public Usuario(String id, int cedula, String nombreCompleto, Genero genero, int edad, String alias, String email, String contrasenna) {
+    //    public Usuario(String id, int cedula, String nombreCompleto, Genero genero, int edad, String alias, String email, String contrasenna) {
 //        this.id = id;
 //        this.cedula = cedula;
 //        this.nombreCompleto = nombreCompleto;
@@ -47,12 +46,12 @@ public class Usuario {
 //        this.email = email;
 //    }
 
-    public String getId() {
-        return id;
+    public String getAlias() {
+        return alias;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setAlias(String alias) {
+        this.alias = alias;
     }
 
     public int getCedula() {
@@ -63,48 +62,12 @@ public class Usuario {
         this.cedula = cedula;
     }
 
-    public String getNombreCompleto() {
-        return nombreCompleto;
-    }
-
-    public void setNombreCompleto(String nombreCompleto) {
-        this.nombreCompleto = nombreCompleto;
-    }
-
-    public String getGenero() {
-        return this.genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
-
     public int getEdad() {
         return edad;
     }
 
     public void setEdad(int edad) {
         this.edad = edad;
-    }
-
-//    public String getContrasenna() {
-//        return contrasenna;
-//    }
-
-//    public void setContrasenna(String contrasenna) {
-//        this.contrasenna = contrasenna;
-//    }
-
-    public String getAlias() {
-        return alias;
-    }
-
-    public void setAlias(String alias) {
-        this.alias = alias;
-    }
-
-    public String getNombre() {
-        return this.nombre;
     }
 
     public String getEmail() {
@@ -114,6 +77,32 @@ public class Usuario {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getNombreCompleto() {
+        return nombreCompleto;
+    }
+
+    public void setNombreCompleto(String nombreCompleto) {
+        this.nombreCompleto = nombreCompleto;
+    }
+
+
 
     /*
     // Generate a reference to a new location and add some data using push()

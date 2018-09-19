@@ -16,6 +16,7 @@ public class RespetoSistema {
     protected Controller databaseController;
     private ArrayList<Denuncia> denuncias = new ArrayList<>();
     private ArrayList<Usuario> usuarios = new ArrayList<>();
+    private Usuario usuario;
     private DatabaseReference databaseReference;
     private DatabaseReference denunciasReference;
 
@@ -63,4 +64,7 @@ public class RespetoSistema {
     public void setDenuncias(ArrayList<Denuncia> denuncias) {
         this.denuncias = denuncias;
     }
+
+
+
 }

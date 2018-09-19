@@ -132,6 +132,8 @@ public class MainFeedActivity extends AppCompatActivity
         });
         */
 
+        databaseController.readUsuario();
+
     }
 
     @Override

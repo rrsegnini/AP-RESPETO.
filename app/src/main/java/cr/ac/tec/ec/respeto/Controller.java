@@ -110,7 +110,7 @@ public class Controller {
                     }
                 });
         String id = mAuth.getCurrentUser().getUid();
-        Usuario user = new Usuario(id, cedula,nombreCompleto,genStr,edad,alias,email);
+        Usuario user = new Usuario( alias,  cedula,  edad,  email,  genStr,  id,  nombreCompleto);
 
         //public Usuario(String id,int cedula, String nombreCompleto, String genero, int edad, String alias, String email)
 
@@ -234,4 +234,25 @@ public class Controller {
 
         return " ";
     }
+
+    public String readUsuario() {
+        mAuth = FirebaseAuth.getInstance();
+        String id  = mAuth.getCurrentUser().getUid();
+        databaseUsuarios = FirebaseDatabase.getInstance().getReference("usuarios");
+        databaseUsuarios.orderByChild("id").equalTo(id).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Usuario usuario = dataSnapshot.getValue(Usuario.class);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
+
+
+        return " ";
+    }
+
 }
