@@ -3,6 +3,7 @@ package cr.ac.tec.ec.respeto;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -13,7 +14,7 @@ public class Pantalla_registrar extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla_registrar);
-
+        String[] generos = {"Masculino","Femenino"};
         Button boton_Registrar = findViewById(R.id.boton_reg);
         EditText nombre = findViewById(R.id.campoNombre);
         EditText email = findViewById(R.id.campoEmail);
@@ -21,6 +22,7 @@ public class Pantalla_registrar extends AppCompatActivity {
         Spinner genero = findViewById(R.id.spinnerGenero);
         EditText fecha_nac = findViewById(R.id.campoFechaNac);
         EditText nombre_usuario = findViewById(R.id.campoNombreUsuario);
+        genero.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, generos));
 
         boton_Registrar.setOnClickListener(new View.OnClickListener() {
             @Override
