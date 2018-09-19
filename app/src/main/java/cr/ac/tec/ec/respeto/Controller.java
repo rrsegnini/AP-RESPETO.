@@ -18,6 +18,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -32,6 +33,8 @@ public class Controller {
     DatabaseReference databaseDenuncias;
     DatabaseReference databaseUsuarios;
 
+
+    private Usuario loggedUser;
 
     private FirebaseAuth mAuth;
 
@@ -226,22 +229,39 @@ public class Controller {
     }
 
 
-    public String readUsuarios(FirebaseAuth mAuth,ArrayList<Usuario> usuarios) {
-
+    public String readAllUsuarios(ArrayList<Usuario> usuarios) {
+        mAuth = FirebaseAuth.getInstance();
         String id  = mAuth.getCurrentUser().getUid();
         usuarios.clear();
         databaseUsuarios = FirebaseDatabase.getInstance().getReference("usuarios");
-        databaseUsuarios.orderByChild("id").equalTo(id).addValueEventListener(new ValueEventListener() {
+        databaseUsuarios.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Usuario usuario = dataSnapshot.getValue(Usuario.class);
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                usuarios.clear();
+
+                for (DataSnapshot usuarioSnashot : dataSnapshot.getChildren()) {
+                    Usuario usuario = usuarioSnashot.getValue(Usuario.class);
+
+
+                    //query para obtener el user nombre del usuario para mandarlo a la clase
+
+                    usuarios.add(usuario);
+                }
+
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
-                System.out.println("The read failed: " + databaseError.getCode());
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
             }
-        });;
+        });
+
+        for (Usuario u: usuarios) {
+            if (u.getId() == id) {
+                loggedUser = u;
+            }
+        }
 
 
         return " ";
@@ -250,11 +270,16 @@ public class Controller {
     public String readUsuario() {
         mAuth = FirebaseAuth.getInstance();
         String id  = mAuth.getCurrentUser().getUid();
-        databaseUsuarios = FirebaseDatabase.getInstance().getReference("usuarios");
-        databaseUsuarios.orderByChild("id").equalTo(id).addListenerForSingleValueEvent(new ValueEventListener() {
+        //databaseUsuarios = FirebaseDatabase.getInstance().getReference("usuarios");
+
+        Query consultaUusuario = FirebaseDatabase.getInstance().getReference().child("usuarios").orderByChild("id").equalTo(id);
+        consultaUusuario.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Usuario usuario = dataSnapshot.getValue(Usuario.class);
+                loggedUser = usuario;
+                //"j2GjaSIfS6dIDikM7gDWgySV7vA3"
+
             }
 
             @Override

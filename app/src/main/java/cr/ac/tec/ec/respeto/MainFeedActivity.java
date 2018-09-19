@@ -132,7 +132,8 @@ public class MainFeedActivity extends AppCompatActivity
         });
         */
 
-        databaseController.readUsuario();
+        //databaseController.readUsuario();
+        databaseController.readAllUsuarios(sistema.getUsuarios());
 
     }
 
