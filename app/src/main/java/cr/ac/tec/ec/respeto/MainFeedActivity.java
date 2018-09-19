@@ -151,8 +151,9 @@ public class MainFeedActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            if (back_pressed + 2000 > System.currentTimeMillis())
+            if (back_pressed + 2000 > System.currentTimeMillis()) {
                 super.onBackPressed();
+            }
             else
                 Toast.makeText(getBaseContext(), "Pulse otra vez para salir", Toast.LENGTH_SHORT).show();
             back_pressed = System.currentTimeMillis();
@@ -187,19 +188,13 @@ public class MainFeedActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_emergency) {
+        if (id == R.id.nav_emergency) {
             Intent emergency_contacts = new Intent(MainFeedActivity.this, PantallaNumEmergencia.class);
             startActivity(emergency_contacts);
 
         } else if (id == R.id.nav_slideshow) {
             Intent help = new Intent(MainFeedActivity.this, PantallaAyuda.class);
             startActivity(help);
-
-        } else if (id == R.id.nav_manage) {
-
-            //} else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_logout) {
             Intent close = new Intent(MainFeedActivity.this, LoginActivity.class);

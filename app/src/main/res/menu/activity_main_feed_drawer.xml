@@ -4,10 +4,7 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Perfil" />
+
         <item
             android:id="@+id/nav_emergency"
             android:icon="@drawable/icons8_ambulance_48"
@@ -20,27 +17,12 @@
             android:title="Ayuda"
 
             />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/icons8_settings_64"
-            android:title="Configuraciones" />
+
         <item
             android:id="@+id/nav_logout"
 
             android:title="LOG OUT" />
     </group>
 
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_feed"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Noticias" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
-        </menu>
-    </item>
 
 </menu>
