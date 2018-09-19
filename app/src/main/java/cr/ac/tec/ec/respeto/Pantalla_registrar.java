@@ -26,11 +26,11 @@ public class Pantalla_registrar extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String textoNombre = nombre.getText().toString();
-                String textoEmail = nombre.getText().toString();
-                String textoCedula = nombre.getText().toString();
-                String textoGenero = nombre.getText().toString();
-                String textoNacimiento = nombre.getText().toString();
-                String textoNombreUsuario = nombre.getText().toString();
+                String textoEmail = email.getText().toString();
+                String textoCedula = cedula.getText().toString();
+                String textoGenero = genero.getSelectedItem().toString();
+                String textoNacimiento = fecha_nac.getText().toString();
+                String textoNombreUsuario = nombre_usuario.getText().toString();
 
 
             }
