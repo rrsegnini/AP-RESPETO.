@@ -55,7 +55,6 @@ public class Comentario {
         this.fechaHora = fechaHora;
     }
 
-
     public String getIdDenuncia() {
         return idDenuncia;
     }

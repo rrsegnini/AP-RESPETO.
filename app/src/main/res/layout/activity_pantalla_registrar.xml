@@ -21,7 +21,6 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="28dp"
-            android:text="TextView"
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
             android:textColor="@color/RSPT_blue"
             app:layout_constraintEnd_toEndOf="parent"
@@ -90,7 +89,7 @@
             android:layout_marginBottom="89dp"
             android:ems="10"
             android:hint="contrasenna"
-            android:inputType="textPersonName" />
+            android:inputType="textPassword" />
 
         <Button
             android:id="@+id/boton_reg"

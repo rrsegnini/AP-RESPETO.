@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -13,10 +14,9 @@ import android.widget.Toast;
 
 public class Pantalla_registrar extends AppCompatActivity {
 
+    private static final String TAG = "PRegistrar";
 
     Controller controladorBD;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class Pantalla_registrar extends AppCompatActivity {
         EditText cedula = findViewById(R.id.campoCedula);
         Spinner genero = findViewById(R.id.spinnerGenero);
         EditText fecha_nac = findViewById(R.id.campoFechaNac);
-        EditText nombre_usuario = findViewById(R.id.campoNombreUsuario);
+        EditText contrasenia = findViewById(R.id.campoNombreUsuario);
         genero.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, generos));
 
         boton_Registrar.setOnClickListener(new View.OnClickListener() {
@@ -40,27 +40,21 @@ public class Pantalla_registrar extends AppCompatActivity {
                 String textoCedula = cedula.getText().toString();
                 String textoGenero = genero.getSelectedItem().toString();
                 String textoNacimiento = fecha_nac.getText().toString();
-                String textoContrasenna = nombre_usuario.getText().toString();
-
-
+                String textoContrasenna = contrasenia.getText().toString();
 
                 try {
-                    int cedula = Integer.getInteger(textoCedula);
-                    int edad = Integer.getInteger(textoNacimiento);
+                    int cedula = Integer.parseInt(textoCedula);
+                    int edad = Integer.parseInt(textoNacimiento);
                     registrar(cedula,textoNombre,textoGenero,edad,"Alias",textoEmail,Pantalla_registrar.this,textoContrasenna);
 
                     Intent intent = new Intent(Pantalla_registrar.this, MainFeedActivity.class);
                     startActivity(intent);
 
-
                 }catch (Exception e) {
                     Toast.makeText(Pantalla_registrar.this, "Ha ocurrido un error",
                             Toast.LENGTH_SHORT).show();
+                    Log.e(TAG, "onClick: ", e);
                 }
-
-
-
-
 
             }
         });

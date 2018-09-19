@@ -107,6 +107,8 @@ public class LoginActivity extends AppCompatActivity {
                     }
                     else{
                         Intent intent = new Intent(LoginActivity.this, MainFeedActivity.class);
+                        int pos = email.indexOf('@');
+                        intent.putExtra("username", email.substring(0, pos));
                         startActivity(intent);
                         Toast.makeText(LoginActivity.this, "Ingreso exitoso",
                                 Toast.LENGTH_SHORT).show();

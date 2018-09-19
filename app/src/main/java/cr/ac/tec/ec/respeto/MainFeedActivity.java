@@ -10,6 +10,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,11 +26,15 @@ import android.widget.TextView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Objects;
+
 public class MainFeedActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
     private DatabaseReference databaseDenuncias;
+    private static final String TAG = "MainFeed";
+    public static String username = "";
     private ListView listViewDenuncia;
     private Controller databaseController;
     private TableLayout feedTable;
@@ -50,6 +55,8 @@ public class MainFeedActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 Intent form = new Intent(MainFeedActivity.this, Formulario.class);
+                form.putExtra("username2", obtener_usuario());
+
                 startActivity(form);
                 /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();*/
@@ -224,5 +231,15 @@ public class MainFeedActivity extends AppCompatActivity
         int i = 0;
         TextView new_element1 = null;
         new_element1 = setNewTextView(i);
+    }
+
+    public String obtener_usuario(){
+        try {
+            username = Objects.requireNonNull(getIntent().getExtras()).getString("username");
+            Log.d(TAG, "obtener_usuario: " + username);
+        } catch (NullPointerException e) {
+            Log.d(TAG, "Default username");
+        }
+        return username;
     }
 }

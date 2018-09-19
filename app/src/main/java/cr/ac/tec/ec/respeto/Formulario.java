@@ -46,6 +46,7 @@ public class Formulario extends AppCompatActivity {
     private RespetoSistema sistema;
 
     private String placeID = "";
+    private String username = "Not Found";
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -72,6 +73,16 @@ public class Formulario extends AppCompatActivity {
         }
         return placeID;
     }
+//
+//    public String obtener_usuario(){
+//        try {
+//            username = Objects.requireNonNull(getIntent().getExtras()).getString("username2");
+//            Log.d(TAG, "obtener_usuario: " + username);
+//        } catch (NullPointerException e) {
+//            Log.d(TAG, "Default username");
+//        }
+//        return username;
+//    }
 
     private long obtener_fecha() throws ParseException {
         Date date = new Date();
@@ -152,12 +163,9 @@ public class Formulario extends AppCompatActivity {
 
                 databaseController = sistema.databaseController;
 
-
                 //leer denuncias
 
-                ArrayList<Usuario> usuarios = new ArrayList<>();
-                String mAlias = (privacidad.isChecked()) ? "Anonimo" :
-                        getUserById(databaseController.getmAuth(), usuarios);
+                String mAlias = (privacidad.isChecked()) ? "Anonimo" : MainFeedActivity.username;
 
                 try {
                     Log.d(TAG, "Usuario Actual ID: " + mUsuario);
