@@ -46,6 +46,7 @@ public class Controller {
 
     public Controller() {
         mAuth = FirebaseAuth.getInstance();
+        databaseReference = FirebaseDatabase.getInstance().getReference();
     }
 
 
@@ -58,11 +59,12 @@ public class Controller {
         int cedula = 101110111;
         String nombreCompleto = "AdministradorUSERTEST";
         Genero genero = Genero.FEMENINO;
+
         int edad = 100;
         String alias = "Apodo del Administrador";
         String email = "admin@admin.com";
         String contrasenna = "admin123";
-        writeNewUser(cedula,nombreCompleto,genero,edad,alias,email,context,contrasenna);
+        writeNewUser(cedula,nombreCompleto,"f",edad,alias,email,context,contrasenna);
 
 
 
@@ -71,16 +73,10 @@ public class Controller {
     }
 
 
-    public void writeNewUser(int cedula, String nombreCompleto, Genero genero, int edad, String alias,
+    public void writeNewUser(int cedula, String nombreCompleto, String genStr, int edad, String alias,
                              String email, Activity context, String contrasenna) {
 
-        String genStr;
-        if (genero == Genero.FEMENINO) {
-            genStr = "f";
 
-        } else {
-            genStr = "m";
-        }
 
         mAuth.createUserWithEmailAndPassword(email, contrasenna)
                 .addOnCompleteListener(context, new OnCompleteListener<AuthResult>() {
@@ -89,11 +85,15 @@ public class Controller {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
+                            Toast.makeText(context, "ERROR",
+                                    Toast.LENGTH_SHORT).show();
 
                             //updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                            Toast.makeText(context, "Registro Exitoso!",
+                                    Toast.LENGTH_SHORT).show();
 
                             //updateUI(null);
 

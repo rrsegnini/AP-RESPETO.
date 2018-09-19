@@ -1,5 +1,7 @@
 package cr.ac.tec.ec.respeto;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -7,8 +9,14 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class Pantalla_registrar extends AppCompatActivity {
+
+
+    Controller controladorBD;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +40,43 @@ public class Pantalla_registrar extends AppCompatActivity {
                 String textoCedula = cedula.getText().toString();
                 String textoGenero = genero.getSelectedItem().toString();
                 String textoNacimiento = fecha_nac.getText().toString();
-                String textoNombreUsuario = nombre_usuario.getText().toString();
+                String textoContrasenna = nombre_usuario.getText().toString();
+
+
+
+                try {
+                    int cedula = Integer.getInteger(textoCedula);
+                    int edad = Integer.getInteger(textoNacimiento);
+                    registrar(cedula,textoNombre,textoGenero,edad,"Alias",textoEmail,Pantalla_registrar.this,textoContrasenna);
+
+                    Intent intent = new Intent(Pantalla_registrar.this, MainFeedActivity.class);
+                    startActivity(intent);
+
+
+                }catch (Exception e) {
+                    Toast.makeText(Pantalla_registrar.this, "Ha ocurrido un error",
+                            Toast.LENGTH_SHORT).show();
+                }
+
+
+
 
 
             }
         });
 
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        controladorBD = new Controller();
+    }
+
+    private void registrar(int cedula, String nombreCompleto, String genero, int edad, String alias,
+                           String email, Activity context, String contrasenna) {
+        controladorBD.writeNewUser(cedula,nombreCompleto,genero,edad,alias,email,context,contrasenna);
+    }
+
+
 }
