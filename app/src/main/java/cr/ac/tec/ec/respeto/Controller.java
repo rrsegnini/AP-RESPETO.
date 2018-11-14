@@ -196,12 +196,16 @@ public class Controller {
                 denuncias.clear();
 
                 for (DataSnapshot denunciaSnapshot : dataSnapshot.getChildren()) {
-                    Denuncia denuncia = denunciaSnapshot.getValue(Denuncia.class);
+                    try {
+                        Denuncia denuncia = denunciaSnapshot.getValue(Denuncia.class);
 
 
-                    //query para obtener el user nombre del usuario para mandarlo a la clase
+                        //query para obtener el user nombre del usuario para mandarlo a la clase
 
-                    denuncias.add(denuncia);
+                        denuncias.add(denuncia);
+                    } catch (Exception e){
+
+                    }
                 }
 
                 Collections.reverse(Arrays.asList(denuncias));
@@ -282,12 +286,16 @@ public class Controller {
                 usuarios.clear();
 
                 for (DataSnapshot usuarioSnashot : dataSnapshot.getChildren()) {
-                    Usuario usuario = usuarioSnashot.getValue(Usuario.class);
+                    try {
+                        Usuario usuario = usuarioSnashot.getValue(Usuario.class);
 
 
-                    //query para obtener el user nombre del usuario para mandarlo a la clase
+                        //query para obtener el user nombre del usuario para mandarlo a la clase
 
-                    usuarios.add(usuario);
+                        usuarios.add(usuario);
+                    } catch (Exception e){
+
+                    }
                 }
 
             }

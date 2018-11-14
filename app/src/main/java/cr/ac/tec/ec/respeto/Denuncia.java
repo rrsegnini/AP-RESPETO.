@@ -11,6 +11,8 @@ public class Denuncia {
     private long fechaHora;
     private String idUsuario;
     private String alias;
+    private String latitud;
+    private String longitud;
 
 
     public Denuncia() {
@@ -22,6 +24,15 @@ public class Denuncia {
         this.fechaHora = fechaHora;
         this.idUsuario = idUsuario;
         this.alias = alias;
+    }
+
+    public Denuncia(String descripcion, long fechaHora, String idUsuario, String alias, String latitud, String longitud) {
+        this.descripcion = descripcion;
+        this.fechaHora = fechaHora;
+        this.idUsuario = idUsuario;
+        this.alias = alias;
+        this.latitud = latitud;
+        this.longitud = longitud;
     }
 
     public int getId() {

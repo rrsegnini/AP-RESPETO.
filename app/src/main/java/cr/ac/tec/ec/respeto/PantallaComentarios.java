@@ -47,14 +47,14 @@ public class PantallaComentarios extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
-
-        databaseController = sistema.databaseController;
-
-        ArrayList<Comentario> comentariosLista = new ArrayList<>();
-
-        //leer denuncias
-        databaseController.readComentarios(PantallaComentarios.this, comentariosLista,listViewComentario);
+//
+//
+//        databaseController = sistema.databaseController;
+//
+//        ArrayList<Comentario> comentariosLista = new ArrayList<>();
+//
+//        //leer denuncias
+//        databaseController.readComentarios(PantallaComentarios.this, comentariosLista,listViewComentario);
 
     }
 
